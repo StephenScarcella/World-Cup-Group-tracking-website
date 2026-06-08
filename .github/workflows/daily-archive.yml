@@ -1,0 +1,37 @@
+name: Daily Archive
+
+on:
+  schedule:
+    # 06:05 UTC = ~02:05 ET / 11:05 PT — well after the last match of the day.
+    - cron: '5 6 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate recap text
+        run: node scripts/generate-recap.js
+
+      - name: Generate archive snapshot
+        run: node scripts/generate-archive.js
+
+      - name: Commit
+        run: |
+          git config user.name "archive-bot"
+          git config user.email "archive-bot@thegroup.local"
+          git add archive/ recap.json
+          if git diff --cached --quiet; then
+            echo "Nothing to archive."
+          else
+            git commit -m "archive: $(date -u +%Y-%m-%d)"
+            git push
+          fi

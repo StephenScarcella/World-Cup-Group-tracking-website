@@ -1,0 +1,36 @@
+name: Fetch WC Scores
+
+on:
+  schedule:
+    # Every 30 minutes. Throttle later in the off-season if you want.
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch and normalize results
+        env:
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+        run: node scripts/fetch-scores.js
+
+      - name: Commit if changed
+        run: |
+          git config user.name "score-bot"
+          git config user.email "score-bot@thegroup.local"
+          git add results.json
+          if git diff --cached --quiet; then
+            echo "No score changes."
+          else
+            git commit -m "scores: auto-update $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
