@@ -227,6 +227,50 @@
   .qual-1 { color: var(--green); }
   .qual-2 { color: var(--gold); }
 
+  /* ============ BRACKET ============ */
+  .qualifiers-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  @media (max-width: 1000px) { .qualifiers-strip { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .qualifiers-strip { grid-template-columns: 1fr; } }
+  .qual-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+    font-size: 12px;
+  }
+  .qual-card .qual-grp {
+    font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; color: var(--gold); font-size: 13px; margin-bottom: 4px;
+  }
+  .qual-card .qual-row { display: flex; justify-content: space-between; padding: 2px 0; }
+  .qual-card .qual-row.win { color: var(--green); font-weight: 600; }
+  .qual-card .qual-row.ru  { color: var(--gold); font-weight: 600; }
+  .qual-card .qual-row.tbd { color: var(--ink-dim); font-style: italic; }
+
+  .bracket-scroll { overflow-x: auto; }
+  .bracket-grid {
+    display: grid; grid-template-columns: repeat(5, minmax(170px, 1fr)); gap: 14px;
+    min-width: 900px;
+  }
+  .bracket-col { display: flex; flex-direction: column; gap: 10px; }
+  .bracket-col-head {
+    font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px;
+    color: var(--ink-dim); font-size: 12px; text-align: center; padding-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .bracket-match {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; font-size: 12px;
+  }
+  .bracket-match.placeholder { background: rgba(255,255,255,0.02); color: var(--ink-dim); border-style: dashed; }
+  .bracket-match .br-row {
+    display: flex; justify-content: space-between; align-items: center; padding: 3px 0;
+  }
+  .bracket-match .br-row.winner { color: var(--gold); font-weight: 700; }
+  .bracket-match .br-row.loser { color: var(--ink-dim); text-decoration: line-through; opacity: 0.7; }
+  .bracket-match .br-score { font-family: 'Bebas Neue', sans-serif; font-size: 14px; }
+  .bracket-match .br-tag {
+    font-size: 9px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px;
+  }
+
   /* ============ ADMIN ============ */
   .admin-panel {
     background: linear-gradient(135deg, #1a1f3f, #20275a);
@@ -293,6 +337,7 @@
       <a onclick="scrollTo2('rosters')">Rosters</a>
       <a onclick="scrollTo2('draft')">Draft</a>
       <a onclick="scrollTo2('matches')">Matches</a>
+      <a onclick="scrollTo2('bracket')">Bracket</a>
       <a onclick="scrollTo2('groups')">Groups</a>
       <a onclick="scrollTo2('admin')">Admin</a>
       <a href="./archive/index.html">Archive</a>
@@ -368,10 +413,28 @@
   <div class="container">
     <div class="sec-head">
       <h2 class="sec-title">MATCH <span>CENTER</span></h2>
-      <span class="sec-note">Results drive scoring. Enter in Admin until API is wired.</span>
+      <span class="sec-note">Auto-fetched from football-data.org every 30 min via GitHub Actions. Manual entry in Admin for corrections.</span>
     </div>
     <div class="match-list" id="matchList"></div>
     <p style="color: var(--ink-dim); font-size: 13px; margin-top: 18px;" id="noMatchesNote">No matches entered yet. Once Group A kicks off June 11, results show here.</p>
+  </div>
+</section>
+
+<!-- ============ BRACKET ============ -->
+<section class="block" id="bracket">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">TOURNAMENT <span>BRACKET</span></h2>
+      <span class="sec-note">Group qualifiers (top 2 + best 3rd) + knockout path. Fills in as matches finish.</span>
+    </div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;letter-spacing:2px;color:var(--gold);font-size:18px;margin:8px 0 12px">GROUP STAGE QUALIFIERS</h3>
+    <div id="qualifiersStrip" class="qualifiers-strip"></div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;letter-spacing:2px;color:var(--gold);font-size:18px;margin:24px 0 12px">KNOCKOUT BRACKET</h3>
+    <div class="bracket-scroll">
+      <div class="bracket-grid" id="bracketGrid"></div>
+    </div>
   </div>
 </section>
 
@@ -391,9 +454,22 @@
   <div class="container">
     <div class="sec-head">
       <h2 class="sec-title">ADMIN <span>CONSOLE</span></h2>
-      <span class="sec-note">All entries persist in your browser. Use Export to share/back up.</span>
+      <span class="sec-note">Edits live in your browser only until you commit the JSON to the repo. That's how everyone else sees them.</span>
     </div>
     <div class="admin-panel">
+      <div style="background:rgba(245,200,76,0.10);border:1px solid rgba(245,200,76,0.30);border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:13px;line-height:1.55;color:var(--ink)">
+        <strong style="color:var(--gold);letter-spacing:1px;text-transform:uppercase;font-size:11px">How saving works</strong>
+        <div style="margin-top:6px">
+          Everything you type here saves to <em>your browser only</em> (localStorage). It will <strong>not</strong> show up for other visitors. To publish:
+          <ol style="margin:8px 0 0 18px;padding:0">
+            <li>Make your edits (picks, avatars, chirps, etc.).</li>
+            <li>Open <em>Export / Import</em> → click <strong>Download picks.json</strong>.</li>
+            <li>Drag that file into your GitHub repo root (replace existing <code>picks.json</code>) → commit.</li>
+            <li>Netlify rebuilds in ~30s. Now all 8 visitors load the same data. Refreshes won't wipe it.</li>
+          </ol>
+          Match scores are different — those auto-fetch every 30 min and save themselves. You only handle picks / groups / avatars / recap copy.
+        </div>
+      </div>
       <div class="admin-tabs">
         <button class="admin-tab active" data-tab="picks">Draft Picks</button>
         <button class="admin-tab" data-tab="results">Match Results</button>
@@ -424,7 +500,7 @@
 
       <!-- RESULTS -->
       <div class="admin-section" data-section="results">
-        <p class="admin-note" style="margin-top:0">Enter results manually for now. (API auto-fetch hook is wired — paste a football-data.org key under Export/Import to enable.)</p>
+        <p class="admin-note" style="margin-top:0"><strong>You usually don't need this tab.</strong> Live scores fetch automatically every 30 min via GitHub Actions on the server side — no key needed in your browser. Use this only to <em>override</em> a result the API got wrong, or to test scoring before the WC starts.</p>
         <div class="admin-form">
           <div class="field">
             <label>Round</label>
@@ -455,7 +531,7 @@
 
       <!-- GROUPS -->
       <div class="admin-section" data-section="groups">
-        <p class="admin-note" style="margin-top:0">Assign each team to Group A–L. (Defaults: hosts in A/B/C; rest blank — fill from the FIFA draw.)</p>
+        <p class="admin-note" style="margin-top:0">Pre-filled with the official 2026 draw (Dec 5, 2025). Only touch this if FIFA reseeds something — otherwise leave it alone.</p>
         <div id="groupAssignForm" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px"></div>
       </div>
 
@@ -477,12 +553,9 @@
         </div>
         <p class="admin-note" style="margin-top:14px"><strong>Locking in the draft for the group:</strong> Once all 48 picks are in, click <em>Download picks.json</em> and commit that file to the repo root. The next deploy makes those picks visible to all 8 visitors without anyone needing to import.</p>
         <hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
-        <p class="admin-note">Optional: paste a <a href="https://www.football-data.org/" target="_blank">football-data.org</a> API key to enable auto-fetch of results.</p>
-        <div class="admin-form">
-          <div class="field"><label>API Key</label><input type="text" id="apiKey" style="min-width:280px" /></div>
-          <button class="btn" onclick="saveApiKey()">Save Key</button>
-          <button class="btn secondary" onclick="fetchResults()">Fetch Now</button>
-        </div>
+        <p class="admin-note"><strong>Score auto-fetch:</strong> The football-data.org API key lives as a GitHub repo secret (<code>FOOTBALL_DATA_KEY</code>) — <em>not</em> in your browser. GitHub Actions runs every 30 min, writes <code>results.json</code> to the repo, and Netlify redeploys. All 8 visitors see the same scores without anyone typing a key.</p>
+        <p class="admin-note">Last fetch: <strong id="lastFetchLabel">checking…</strong></p>
+        <p class="admin-note">To force a fresh fetch (don't wait for cron): repo → <em>Actions</em> tab → <em>Fetch WC Scores</em> → <em>Run workflow</em>.</p>
       </div>
     </div>
   </div>
@@ -490,8 +563,8 @@
 
 <footer>
   <div class="container">
-    Built for the group. The Group — World Cup 2026 Fantasy. <br/>
-    Tip: share this site once it's on Netlify. The 7 others see the same scores once you Export → paste the JSON into the source code.
+    Built for the group. The Group — World Cup 2026 Fantasy.<br/>
+    Scores auto-update every 30 min from football-data.org. Picks &amp; chirps publish when the admin commits <code>picks.json</code>.
   </div>
 </footer>
 
@@ -523,6 +596,35 @@ const TEAMS = [
 ];
 
 const TIER_MULT = {1:1, 2:2, 3:3, 4:4};
+
+// Official 2026 FIFA World Cup group draw (Dec 5, 2025).
+// teamId -> group letter. Used as defaults if nothing in STATE.groups yet.
+const DEFAULT_GROUPS = {
+  // A: Mexico, South Africa, South Korea, Czechia
+  14:"A", 40:"A", 23:"A", 33:"A",
+  // B: Canada, Bosnia & Herzegovina, Qatar, Switzerland
+  27:"B", 43:"B", 38:"B", 18:"B",
+  // C: Brazil, Morocco, Haiti, Scotland
+  6:"C", 9:"C", 47:"C", 34:"C",
+  // D: United States, Paraguay, Australia, Turkey
+  15:"D", 32:"D", 24:"D", 20:"D",
+  // E: Germany, Curacao, Ivory Coast, Ecuador
+  8:"E", 46:"E", 30:"E", 21:"E",
+  // F: Netherlands, Japan, Sweden, Tunisia
+  7:"F", 17:"F", 31:"F", 35:"F",
+  // G: Belgium, Egypt, Iran, New Zealand
+  10:"G", 26:"G", 19:"G", 48:"G",
+  // H: Spain, Cape Verde, Saudi Arabia, Uruguay
+  2:"H", 44:"H", 41:"H", 16:"H",
+  // I: France, Senegal, Iraq, Norway
+  1:"I", 13:"I", 39:"I", 28:"I",
+  // J: Argentina, Algeria, Austria, Jordan
+  3:"J", 25:"J", 22:"J", 42:"J",
+  // K: Portugal, DR Congo, Uzbekistan, Colombia
+  5:"K", 36:"K", 37:"K", 12:"K",
+  // L: England, Croatia, Ghana, Panama
+  4:"L", 11:"L", 45:"L", 29:"L"
+};
 
 const SCORING = {
   group_win: 1, group_tie: 0.5, group_loss: 0,
@@ -569,6 +671,10 @@ function loadState() {
     const raw = localStorage.getItem(LS_KEY);
     if (raw) STATE = Object.assign(STATE, JSON.parse(raw));
   } catch(e) { console.warn("load failed", e); }
+  // Backfill groups from the official draw if blank
+  if (!STATE.groups || Object.keys(STATE.groups).length === 0) {
+    STATE.groups = Object.assign({}, DEFAULT_GROUPS);
+  }
 }
 function saveState() {
   localStorage.setItem(LS_KEY, JSON.stringify(STATE));
@@ -803,6 +909,100 @@ function renderMatches() {
   }).join("");
 }
 
+// Compute group standings — shared by renderGroups + renderQualifiers
+function computeGroupStandings() {
+  const letters = "ABCDEFGHIJKL".split("");
+  const standings = {};
+  letters.forEach(L => standings[L] = {});
+  TEAMS.forEach(t => {
+    const g = STATE.groups[t.id];
+    if (g && standings[g]) standings[g][t.id] = {team: t, p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0};
+  });
+  STATE.matches.filter(m => m.round === "group").forEach(m => {
+    const a = team(m.teamAId), b = team(m.teamBId);
+    if (!a || !b) return;
+    const g = STATE.groups[a.id];
+    if (!g || !standings[g][a.id] || !standings[g][b.id]) return;
+    const sA = standings[g][a.id], sB = standings[g][b.id];
+    sA.p++; sB.p++; sA.gf += m.scoreA; sA.ga += m.scoreB; sB.gf += m.scoreB; sB.ga += m.scoreA;
+    if (m.scoreA > m.scoreB) { sA.w++; sB.l++; sA.pts += 3; }
+    else if (m.scoreB > m.scoreA) { sB.w++; sA.l++; sB.pts += 3; }
+    else { sA.d++; sB.d++; sA.pts++; sB.pts++; }
+  });
+  const sortFn = (x,y) => y.pts - x.pts || (y.gf-y.ga) - (x.gf-x.ga) || y.gf - x.gf;
+  const sorted = {};
+  letters.forEach(L => {
+    sorted[L] = Object.values(standings[L]).sort(sortFn);
+  });
+  return sorted;
+}
+
+function renderQualifiers() {
+  const strip = document.getElementById("qualifiersStrip");
+  const standings = computeGroupStandings();
+  const letters = "ABCDEFGHIJKL".split("");
+  strip.innerHTML = letters.map(L => {
+    const rows = standings[L];
+    const w = rows[0], r = rows[1], t = rows[2];
+    const cell = (s, cls, label) => s
+      ? `<div class="qual-row ${cls}"><span>${label} · ${s.team.name}</span><span>${s.pts}p</span></div>`
+      : `<div class="qual-row tbd"><span>${label} · TBD</span><span>—</span></div>`;
+    return `
+      <div class="qual-card">
+        <div class="qual-grp">GROUP ${L}</div>
+        ${cell(w, "win", "1st")}
+        ${cell(r, "ru",  "2nd")}
+        ${cell(t, "tbd", "3rd")}
+      </div>
+    `;
+  }).join("");
+}
+
+function renderBracket() {
+  const grid = document.getElementById("bracketGrid");
+  const cols = [
+    { key: "r32",   label: "Round of 32", slots: 16 },
+    { key: "r16",   label: "Round of 16", slots: 8 },
+    { key: "qf",    label: "Quarterfinal", slots: 4 },
+    { key: "sf",    label: "Semifinal",   slots: 2 },
+    { key: "final", label: "Final",       slots: 1 }
+  ];
+  grid.innerHTML = cols.map(col => {
+    const matches = STATE.matches.filter(m => m.round === col.key);
+    let cells = "";
+    for (let i = 0; i < col.slots; i++) {
+      const m = matches[i];
+      if (m) {
+        const a = team(m.teamAId), b = team(m.teamBId);
+        if (!a || !b) { cells += `<div class="bracket-match placeholder">—</div>`; continue; }
+        let winId = m.winner === "A" ? a.id : m.winner === "B" ? b.id : (m.scoreA > m.scoreB ? a.id : m.scoreB > m.scoreA ? b.id : null);
+        const cls = (tid) => winId == null ? "" : tid === winId ? "winner" : "loser";
+        cells += `
+          <div class="bracket-match">
+            <div class="br-tag">${col.label} · M${i+1}</div>
+            <div class="br-row ${cls(a.id)}"><span>${a.name}</span><span class="br-score">${m.scoreA}</span></div>
+            <div class="br-row ${cls(b.id)}"><span>${b.name}</span><span class="br-score">${m.scoreB}</span></div>
+          </div>
+        `;
+      } else {
+        cells += `
+          <div class="bracket-match placeholder">
+            <div class="br-tag">${col.label} · M${i+1}</div>
+            <div class="br-row"><span>TBD</span><span class="br-score">—</span></div>
+            <div class="br-row"><span>TBD</span><span class="br-score">—</span></div>
+          </div>
+        `;
+      }
+    }
+    return `
+      <div class="bracket-col">
+        <div class="bracket-col-head">${col.label}</div>
+        ${cells}
+      </div>
+    `;
+  }).join("");
+}
+
 function renderGroups() {
   const grid = document.getElementById("groupsGrid");
   const letters = "ABCDEFGHIJKL".split("");
@@ -930,8 +1130,17 @@ function renderAdminLookups() {
     </div>
   `).join("");
 
-  // API key
-  document.getElementById("apiKey").value = STATE.apiKey || "";
+  // Last-fetch label
+  const fetched = window.__RESULTS_FETCHED_AT__;
+  const lbl = document.getElementById("lastFetchLabel");
+  if (lbl) {
+    if (fetched) {
+      const d = new Date(fetched);
+      lbl.textContent = d.toLocaleString();
+    } else {
+      lbl.textContent = "no fetches yet (auto-runs every 30 min once enabled)";
+    }
+  }
 }
 
 function renderAll() {
@@ -942,6 +1151,8 @@ function renderAll() {
   renderRosters(rows);
   renderDraftBoard();
   renderMatches();
+  renderQualifiers();
+  renderBracket();
   renderGroups();
   renderAdminLookups();
 }
@@ -1020,9 +1231,9 @@ function importData() {
   } catch(e) { alert("Bad JSON: " + e.message); }
 }
 function resetAll() {
-  if (!confirm("Erase all picks, results, groups, avatars?")) return;
+  if (!confirm("Erase all picks, results, avatars? (Groups re-fill from the official draw.)")) return;
   localStorage.removeItem(LS_KEY);
-  STATE = { picks: {}, pickHistory: [], matches: [], groups: {}, avatars: {}, apiKey: "" };
+  STATE = { picks: {}, pickHistory: [], matches: [], groups: Object.assign({}, DEFAULT_GROUPS), avatars: {} };
   renderAll();
 }
 function downloadPicksJson() {
@@ -1040,18 +1251,7 @@ function downloadPicksJson() {
   document.body.appendChild(a); a.click(); a.remove();
   URL.revokeObjectURL(url);
 }
-function saveApiKey() {
-  STATE.apiKey = document.getElementById("apiKey").value.trim();
-  saveState();
-  alert("API key saved (stored in your browser only).");
-}
-async function fetchResults() {
-  if (!STATE.apiKey) { alert("Add a football-data.org API key first."); return; }
-  alert("Auto-fetch hook ready, but match data won't be available until June 11. Once the WC starts, this will pull from football-data.org competition WC.");
-  // Stub for future:
-  // const r = await fetch("https://api.football-data.org/v4/competitions/WC/matches", { headers: { "X-Auth-Token": STATE.apiKey } });
-  // ... merge into STATE.matches
-}
+// (apiKey/fetchResults removed — fetching happens server-side via GitHub Actions.)
 
 /* ==========================================================
    TABS + SCROLL
@@ -1113,6 +1313,7 @@ async function loadRemote() {
   }
 
   if (results && results.matches) STATE.matches = results.matches;
+  if (results && results.fetchedAt) window.__RESULTS_FETCHED_AT__ = results.fetchedAt;
 
   if (recap && recap.headline) {
     window.__RECAP__ = recap;
