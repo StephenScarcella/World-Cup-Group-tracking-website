@@ -1,6 +1,18 @@
 {
-  "generatedAt": null,
-  "date": null,
-  "headline": "",
-  "sub": ""
+  "generatedAt": "2026-06-09T16:20:26.397Z",
+  "date": "2026-06-09",
+  "yesterday": "2026-06-08",
+  "headline": "The Group is locking in. 48 teams. 8 friends. One trophy.",
+  "sub": "Draft picks roll in as they're recorded. Once Group A kicks off, scores update every 30 minutes.",
+  "leader": {
+    "name": "Teddy",
+    "pts": 0
+  },
+  "bigMover": {
+    "name": "Teddy",
+    "pts": 0,
+    "gained": 0
+  },
+  "eliminated": [],
+  "matchCountYesterday": 0
 }
