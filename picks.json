@@ -16,10 +16,12 @@
     "17": "Stev",
     "18": "Max",
     "20": "Stev",
+    "26": "James",
     "27": "Teddy",
     "28": "James",
     "31": "Jim",
-    "33": "Teddy"
+    "33": "Teddy",
+    "34": "Nick"
   },
   "pickHistory": [
     {
@@ -101,9 +103,17 @@
     {
       "teamId": 17,
       "player": "Stev"
+    },
+    {
+      "teamId": 26,
+      "player": "James"
+    },
+    {
+      "teamId": 34,
+      "player": "Nick"
     }
   ],
   "groups": {},
   "avatars": {},
-  "lockedAt": "2026-06-09T00:01:01.182Z"
+  "lockedAt": "2026-06-09T00:23:05.778Z"
 }
