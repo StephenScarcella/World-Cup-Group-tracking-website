@@ -18,17 +18,36 @@
     "16": "Jim",
     "17": "Stev",
     "18": "Max",
+    "19": "Rob",
     "20": "Stev",
     "21": "Max",
     "22": "Nick",
     "23": "Max",
+    "24": "James",
+    "25": "Rob",
     "26": "James",
     "27": "Teddy",
     "28": "James",
+    "29": "Joe",
+    "30": "Jim",
     "31": "Jim",
+    "32": "Max",
     "33": "Teddy",
     "34": "Nick",
-    "45": "Joe"
+    "35": "Teddy",
+    "36": "Jim",
+    "37": "Max",
+    "38": "Joe",
+    "39": "Stev",
+    "40": "James",
+    "41": "Stev",
+    "42": "Jim",
+    "43": "Teddy",
+    "44": "Rob",
+    "45": "Joe",
+    "46": "Nick",
+    "47": "Teddy",
+    "48": "Nick"
   },
   "pickHistory": [
     {
@@ -146,6 +165,82 @@
     {
       "teamId": 13,
       "player": "Stev"
+    },
+    {
+      "teamId": 30,
+      "player": "Jim"
+    },
+    {
+      "teamId": 25,
+      "player": "Rob"
+    },
+    {
+      "teamId": 43,
+      "player": "Teddy"
+    },
+    {
+      "teamId": 35,
+      "player": "Teddy"
+    },
+    {
+      "teamId": 19,
+      "player": "Rob"
+    },
+    {
+      "teamId": 36,
+      "player": "Jim"
+    },
+    {
+      "teamId": 41,
+      "player": "Stev"
+    },
+    {
+      "teamId": 40,
+      "player": "James"
+    },
+    {
+      "teamId": 48,
+      "player": "Nick"
+    },
+    {
+      "teamId": 29,
+      "player": "Joe"
+    },
+    {
+      "teamId": 37,
+      "player": "Max"
+    },
+    {
+      "teamId": 32,
+      "player": "Max"
+    },
+    {
+      "teamId": 38,
+      "player": "Joe"
+    },
+    {
+      "teamId": 46,
+      "player": "Nick"
+    },
+    {
+      "teamId": 24,
+      "player": "James"
+    },
+    {
+      "teamId": 39,
+      "player": "Stev"
+    },
+    {
+      "teamId": 42,
+      "player": "Jim"
+    },
+    {
+      "teamId": 44,
+      "player": "Rob"
+    },
+    {
+      "teamId": 47,
+      "player": "Teddy"
     }
   ],
   "groups": {
@@ -199,5 +294,5 @@
     "48": "G"
   },
   "avatars": {},
-  "lockedAt": "2026-06-09T02:11:22.272Z"
+  "lockedAt": "2026-06-09T16:54:30.042Z"
 }
