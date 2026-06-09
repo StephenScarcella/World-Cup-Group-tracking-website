@@ -1,0 +1,209 @@
+{
+  "generatedAt": "2026-06-09T20:00:00.000Z",
+  "headline": "Draft's locked. 48 picks in. Two days until Mexico kicks the door open.",
+  "sub": "Pre-tournament read: James drew the best roster on paper, Joe made the boldest bet of the night, and Nick has more elite tier-1 talent than anyone — at exactly the worst multiplier. Outlook below.",
+  "predictedStandings": [
+    {
+      "rank": 1,
+      "name": "James",
+      "projected": 34,
+      "topTeam": "Netherlands",
+      "summary": "Quietly assembled the best roster of the night. Norway at 3x means Haaland is a points printer if he gets going. Morocco's 2022 semifinal floor + Dutch ceiling = real outlook to lead wire-to-wire."
+    },
+    {
+      "rank": 2,
+      "name": "Nick",
+      "projected": 31,
+      "topTeam": "Argentina",
+      "summary": "Argentina AND Portugal is the strongest top-end on the board. Catch: both are 1x. Bigger catch: Austria sits in Group J right next to Argentina, so Nick's own teams cannibalize for points."
+    },
+    {
+      "rank": 3,
+      "name": "Joe",
+      "projected": 29,
+      "topTeam": "Brazil",
+      "summary": "Brazil is the trophy hold. The Group L stack (Croatia / Ghana / Panama, all opposite England) is either a tournament-winning concentration play or a Round-of-32 obituary. No middle ground."
+    },
+    {
+      "rank": 4,
+      "name": "Rob",
+      "projected": 28,
+      "topTeam": "France",
+      "summary": "France-Mexico-Colombia is the most balanced top three in the league. Group I (France-Senegal-Iraq-Norway) is a meat grinder. If France escapes, Rob's ceiling is the final."
+    },
+    {
+      "rank": 5,
+      "name": "Jim",
+      "projected": 25,
+      "topTeam": "England",
+      "summary": "England-centric. Uruguay and Ivory Coast are clean mid-tier hedges. Floor is high, but ceiling depends entirely on whether Bellingham delivers the run England has owed since 1966."
+    },
+    {
+      "rank": 6,
+      "name": "Teddy",
+      "projected": 24,
+      "topTeam": "Spain",
+      "summary": "Spain at 1x is the rock. The real intrigue is Canada at 3x as a host — if Davies-Alphonso-David push past group stage, this roster moves. Tunisia/Haiti/Bosnia are lottery tickets."
+    },
+    {
+      "rank": 7,
+      "name": "Stev",
+      "projected": 23,
+      "topTeam": "Germany",
+      "summary": "Germany anchors. Then it gets messy: Senegal AND Iraq both drew Group I (with France) so Stev is racing two of his own teams for a knockout slot. Japan/Turkey have real upside."
+    },
+    {
+      "rank": 8,
+      "name": "Max",
+      "projected": 22,
+      "topTeam": "Belgium",
+      "summary": "The safety play. Most spread-out roster (6 groups, 6 teams). Belgium has to be the engine. Otherwise it's a Tier-2 grind: Switzerland, Ecuador, South Korea — all live, none thrilling."
+    }
+  ],
+  "storylines": [
+    {
+      "title": "The Group L Gambit",
+      "body": "Joe drafted Croatia, Ghana, AND Panama — all in Group L, all opposite Jim's England. The math: England takes one qualifying spot, leaving two for Joe's three teams. He's either lapping the field by July 1 or down 0-12 in fantasy points he literally drafted onto himself."
+    },
+    {
+      "title": "James's Haaland Hedge",
+      "body": "Norway is Tier 3 (3x). Haaland is the best striker on Earth. Group I is brutal (France, Senegal, Iraq) but if Norway escapes and wins a knockout round, that's 6+ points per game versus 2-3 from elite Tier-1s. This is the highest-leverage pick of the draft."
+    },
+    {
+      "title": "Nick's Own-Goal Handcuff",
+      "body": "Argentina and Austria both drew Group J. Nick's reigning-champion pick will produce points; his fourth-round pick will also produce points — but every Argentina-Austria result is a wash for him. Best case his teams finish 1st and 2nd. Worst case they trade losses with Algeria (Rob's)."
+    },
+    {
+      "title": "Teddy's Host Card",
+      "body": "Canada (T3, 3x) is the sleeper of the draft. Hosts have advanced from group stage in 4 of the last 5 World Cups. If Canada survives Group B and wins ONE knockout match, that's 9 points from a single pick — more than most Tier-1s will produce all tournament."
+    },
+    {
+      "title": "Saudi Arabia Beat Argentina Once",
+      "body": "Stev's last pick was Saudi Arabia (T4, 4x). They share Group H with Spain. A 2022-style upset is worth 4 points for a single group win, and an R32 win is worth EIGHT. The lowest-tier teams have the highest variance — watch them."
+    }
+  ],
+  "groupNarratives": [
+    {
+      "group": "A",
+      "headline": "Mexico's pressure cooker",
+      "lead": "Hosts open the tournament June 11. South Korea is the real threat to Mexico's qualifying floor.",
+      "ownerSpread": "Teddy (Czechia), Max (South Korea), James (South Africa)"
+    },
+    {
+      "group": "B",
+      "headline": "Wide open",
+      "lead": "No clear favorite. Canada will be backed by 30,000 in Toronto. Switzerland is the steady pick. Qatar and Bosnia are wild cards.",
+      "ownerSpread": "Teddy (Canada, Bosnia), Max (Switzerland), Joe (Qatar)"
+    },
+    {
+      "group": "C",
+      "headline": "Brazil's redemption tour",
+      "lead": "Joe's Brazil pick should walk to first. Morocco is the dangerous floor for Joe — and the dangerous ceiling for James.",
+      "ownerSpread": "Joe (Brazil, Haiti), James (Morocco), Nick (Scotland)"
+    },
+    {
+      "group": "D",
+      "headline": "USA's home stage",
+      "lead": "Joe's USA pick gets the home crowd. Paraguay is the worry. Turkey has top-shelf talent in Güler.",
+      "ownerSpread": "Joe (USA), Stev (Turkey), James (Australia), Max (Paraguay)"
+    },
+    {
+      "group": "E",
+      "headline": "Germany's road test",
+      "lead": "Stev's Germany should top this. Ecuador and Ivory Coast are sneaky strong third-place candidates.",
+      "ownerSpread": "Stev (Germany), Max (Ecuador), Jim (Ivory Coast), Nick (Curacao)"
+    },
+    {
+      "group": "F",
+      "headline": "Netherlands' soft landing",
+      "lead": "James's Dutch pick gets a friendly group. Japan beat Germany AND Spain in 2022. Watch the Japan-Netherlands match.",
+      "ownerSpread": "James (Netherlands), Stev (Japan), Jim (Sweden), Teddy (Tunisia)"
+    },
+    {
+      "group": "G",
+      "headline": "Belgium's last dance",
+      "lead": "De Bruyne-Lukaku finale. Iran defends, Egypt has Salah, New Zealand is along for the ride.",
+      "ownerSpread": "Max (Belgium), Rob (Iran), James (Egypt), Nick (New Zealand)"
+    },
+    {
+      "group": "H",
+      "headline": "Spain's coronation lap",
+      "lead": "Teddy's Spain pick is the cleanest read in the draft. Uruguay and Saudi Arabia fight for second.",
+      "ownerSpread": "Teddy (Spain), Jim (Uruguay), Stev (Saudi Arabia), Rob (Cape Verde)"
+    },
+    {
+      "group": "I",
+      "headline": "The Group of Death",
+      "lead": "France vs Norway vs Senegal in one group. Iraq just there to absorb damage. Two of these advance — picking which is impossible.",
+      "ownerSpread": "Rob (France), Stev (Senegal, Iraq), James (Norway)"
+    },
+    {
+      "group": "J",
+      "headline": "Argentina's victory lap",
+      "lead": "Reigning champs. Austria-Algeria fight for second. Jordan completes the field. Nick has two teams here.",
+      "ownerSpread": "Nick (Argentina, Austria), Rob (Algeria), Jim (Jordan)"
+    },
+    {
+      "group": "K",
+      "headline": "Portugal-Colombia coin flip",
+      "lead": "Two Tier-1s in the same group means one of Nick/Rob's stars eats a tough draw. DR Congo could shock somebody.",
+      "ownerSpread": "Nick (Portugal), Rob (Colombia), Jim (DR Congo), Max (Uzbekistan)"
+    },
+    {
+      "group": "L",
+      "headline": "Joe's stack vs Jim's England",
+      "lead": "England should win this. Croatia is dangerous in knockouts. Joe owns three of four teams here. Storyline of the group stage.",
+      "ownerSpread": "Jim (England), Joe (Croatia, Ghana, Panama)"
+    }
+  ],
+  "teamBlurbs": {
+    "France": "Mbappé in his prime, depth at every position, 2018 winners and 2022 finalists. The most complete squad on paper. Group I is the only obstacle.",
+    "Spain": "UEFA Champions and oddsmaker favorites. Yamal is the youngest superstar in the tournament. Group H is a soft draw.",
+    "Argentina": "World #1. Reigning champs. Messi at 38 is one tournament tour away from the truest GOAT closer in sports.",
+    "England": "Bellingham, Saka, Foden, Kane. Talent for days. Pressure forever. Group L is winnable; the knockout half is brutal.",
+    "Portugal": "Ronaldo era over, Bruno-Félix-Neves era now. Reigning Nations League holders. Group K with Colombia is the real test.",
+    "Brazil": "Ancelotti's first World Cup as Brazil manager. Vinicius, Rodrygo, Raphinha. National mood: furious about the wait since 2002.",
+    "Netherlands": "Underrated, like always. Frenkie de Jong directs traffic, Gakpo finishes. Group F is the softest landing of any Tier-1.",
+    "Germany": "Nagelsmann's project. Wirtz is the X-factor. Hosted last Euro, now a road game across the Atlantic.",
+    "Morocco": "2022 semifinalists. Hakimi, Ziyech, En-Nesyri. Not a Cinderella anymore — a known quantity. Joe and James are watching closely.",
+    "Belgium": "Last ride for De Bruyne and Lukaku. Tijjani Reijnders too late to fix everything. Real Tier-1 ceiling though.",
+    "Croatia": "Modrić, 40 years old, still refuses to leave the field. Always plays into the back half of the bracket.",
+    "Colombia": "Copa America runners-up. James Rodríguez 2.0 era. Group K has two Tier-1s; only one advances comfortably.",
+    "Senegal": "Reigning AFCON champions. Sadio Mané evergreen. Drew the worst possible group (France, Norway, Iraq).",
+    "Mexico": "Hosts. Pressure city. Opening match June 11. Always overperforms in groups, always underperforms in R16.",
+    "United States": "Pulisic-Reyna-Balogun core in their prime. Home crowd in three host cities. Realistically a QF ceiling — but in this format that's elite.",
+    "Uruguay": "Bielsa's chaos. Always overperforms the talent. Núñez/Pellistri/Valverde core. Group H second place is theirs to lose.",
+    "Japan": "Beat Germany AND Spain in 2022. Mitoma in form. Group F could be Japan's path to a QF for the first time ever.",
+    "Switzerland": "Yakin's pragmatists. Group B is wide open; Switzerland is the steadiest team in it.",
+    "Iran": "Group G underdog. Defense first, counter when it opens. Always a tough out.",
+    "Turkey": "Montella's energy plus Arda Güler's wand. Stev's sleeper pick has real upside.",
+    "Ecuador": "Always shows up. Solid defense, Caicedo runs the middle.",
+    "Austria": "Rangnick's pressing system. Real threat in Group J — Nick's other pick here might out-earn Argentina in group play.",
+    "South Korea": "Son Heung-min's last World Cup. Group A is genuinely winnable.",
+    "Australia": "Always punches up. Out of group in 2022. James's clever late grab.",
+    "Algeria": "Mahrez's swan song. Group J is a tough lane.",
+    "Egypt": "Salah's last shot at a World Cup moment. Group G has openings.",
+    "Canada": "Host nation. Davies-Alphonso-David is a real attack. Teddy's 3x multiplier sleeper.",
+    "Norway": "Haaland. That's the sentence. 3x multiplier on the best striker alive — highest-leverage pick on the board.",
+    "Panama": "Defensive shell, set-piece grinders. Group L survivor candidate.",
+    "Ivory Coast": "Reigning AFCON champions. Probably the strongest African team after Morocco. Jim got real value here.",
+    "Sweden": "Isak and Gyökeres up top, a question mark behind them. Group F third place is on the table.",
+    "Paraguay": "Set-piece grinders. Defense first. Solid 4x lottery ticket if they sneak past USA or Australia.",
+    "Czechia": "Old-guard meets young-guard. Group A is live; Czechia could finish second.",
+    "Scotland": "Brave little Scotland. The Tartan Army will be everywhere. Group C is a brutal draw though.",
+    "Tunisia": "Defensive shape, always a tough out, rarely scores. Floor is high, ceiling is low.",
+    "DR Congo": "AFCON semifinalists. Biggest African dark horse. Group K could get interesting.",
+    "Uzbekistan": "First-ever World Cup. Vibes are pure. Realistically here to absorb damage in Group K.",
+    "Qatar": "Defending hosts in someone else's tournament. The drop-off is steep.",
+    "Iraq": "Group I dragon's lair. Worst possible draw for a Tier-4 team. Stev gambled.",
+    "South Africa": "Host group A guest. AFCON semifinalist 2024. Don't sleep.",
+    "Saudi Arabia": "Beat Argentina in 2022. The single most dangerous Tier-4 team. Stev's last pick could be brilliant.",
+    "Jordan": "Asian Cup finalists 2024. Group J just hopes to take a point off someone.",
+    "Bosnia and Herzegovina": "Džeko's legacy run, age 40. Group B is open enough that Bosnia could steal third place.",
+    "Cape Verde": "First ever World Cup. The whole country bought tickets. Group H is brutal but the vibes are immaculate.",
+    "Ghana": "Black Stars looking to atone for the 2022 fiasco. Group L means battling Joe's other two teams.",
+    "Curacao": "Population: 150,000. World Cup participants. Vibes: immaculate. Group E is rough.",
+    "Haiti": "First World Cup since 1974. Earthquake nation gets a global stage. Group C is a brutal welcome back.",
+    "New Zealand": "All Whites back in the WC after long absence. Group G is winnable for third place."
+  }
+}

@@ -227,6 +227,71 @@
   .qual-1 { color: var(--green); }
   .qual-2 { color: var(--gold); }
 
+  /* ============ OUTLOOK ============ */
+  .outlook-sub {
+    font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; color: var(--gold);
+    font-size: 18px; margin: 28px 0 12px;
+  }
+  .proj-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  }
+  @media (max-width: 800px) { .proj-grid { grid-template-columns: 1fr; } }
+  .proj-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+    display: grid; grid-template-columns: 42px 1fr auto; gap: 14px; align-items: start;
+  }
+  .proj-rank { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--ink-dim); }
+  .proj-card.podium-1 .proj-rank { color: var(--gold); }
+  .proj-card.podium-1 { background: linear-gradient(135deg, rgba(245,200,76,0.12), var(--panel)); border-color: rgba(245,200,76,0.35); }
+  .proj-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1.5px; }
+  .proj-top { font-size: 11px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+  .proj-summary { font-size: 13px; color: var(--ink); margin-top: 8px; line-height: 1.5; }
+  .proj-pts { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); }
+  .proj-pts-label { font-size: 9px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 1px; text-align: right; }
+
+  .story-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  @media (max-width: 800px) { .story-grid { grid-template-columns: 1fr; } }
+  .story-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+  }
+  .story-title {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .story-body { font-size: 13px; color: var(--ink); line-height: 1.55; }
+
+  .group-narr-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  @media (max-width: 1000px) { .group-narr-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .group-narr-grid { grid-template-columns: 1fr; } }
+  .gn-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+  }
+  .gn-letter { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; color: var(--gold); font-size: 14px; }
+  .gn-headline { font-weight: 700; font-size: 14px; margin: 4px 0 6px; }
+  .gn-lead { font-size: 12px; color: var(--ink); line-height: 1.5; }
+  .gn-owners { font-size: 11px; color: var(--ink-dim); margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.06); }
+
+  .blurb-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  }
+  @media (max-width: 1000px) { .blurb-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .blurb-grid { grid-template-columns: 1fr; } }
+  .blurb-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+    font-size: 12px; line-height: 1.5;
+  }
+  .blurb-head {
+    display: flex; align-items: center; gap: 6px; margin-bottom: 4px;
+  }
+  .blurb-team { font-weight: 700; font-size: 13px; }
+  .blurb-meta { font-size: 10px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 1px; margin-left: auto; }
+  .blurb-body { color: var(--ink-dim); }
+  .blurb-body strong { color: var(--ink); font-weight: 600; }
+
   /* ============ BRACKET ============ */
   .qualifiers-strip {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
@@ -333,6 +398,7 @@
       <span class="pill" id="dayPill">Matchday —</span>
     </div>
     <div class="nav-links">
+      <a onclick="scrollTo2('outlook')">Outlook</a>
       <a onclick="scrollTo2('lb')">Leaderboard</a>
       <a onclick="scrollTo2('rosters')">Rosters</a>
       <a onclick="scrollTo2('draft')">Draft</a>
@@ -367,6 +433,28 @@
     <div class="movers" id="moversBox"></div>
   </div>
 </div>
+
+<!-- ============ OUTLOOK ============ -->
+<section class="block" id="outlook" style="display:none">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">PRE-TOURNAMENT <span>OUTLOOK</span></h2>
+      <span class="sec-note" id="outlookTimestamp"></span>
+    </div>
+
+    <h3 class="outlook-sub">PREDICTED FANTASY STANDINGS</h3>
+    <div class="proj-grid" id="projStandings"></div>
+
+    <h3 class="outlook-sub">STORYLINES</h3>
+    <div class="story-grid" id="storyGrid"></div>
+
+    <h3 class="outlook-sub">GROUP-BY-GROUP READ</h3>
+    <div class="group-narr-grid" id="groupNarrGrid"></div>
+
+    <h3 class="outlook-sub">TEAM-BY-TEAM</h3>
+    <div class="blurb-grid" id="blurbGrid"></div>
+  </div>
+</section>
 
 <!-- ============ FULL LEADERBOARD ============ -->
 <section class="block" id="lb">
@@ -1284,11 +1372,15 @@ async function loadRemote() {
       return await r.json();
     } catch { return null; }
   };
-  const [picks, results, recap] = await Promise.all([
+  const [picks, results, recap, outlook] = await Promise.all([
     tryFetch("./picks.json"),
     tryFetch("./results.json"),
-    tryFetch("./recap.json")
+    tryFetch("./recap.json"),
+    tryFetch("./outlook.json")
   ]);
+  if (outlook && (outlook.predictedStandings || outlook.teamBlurbs)) {
+    window.__OUTLOOK__ = outlook;
+  }
 
   if (picks && picks.picks && Object.keys(picks.picks).length) {
     STATE.picks = picks.picks;
@@ -1320,6 +1412,78 @@ async function loadRemote() {
   }
 }
 
+function renderOutlook() {
+  const o = window.__OUTLOOK__;
+  const sec = document.getElementById("outlook");
+  if (!o) { sec.style.display = "none"; return; }
+  sec.style.display = "";
+
+  // timestamp
+  if (o.generatedAt) {
+    const d = new Date(o.generatedAt);
+    document.getElementById("outlookTimestamp").textContent =
+      "Posted " + d.toLocaleDateString(undefined, {month:"long", day:"numeric", year:"numeric"});
+  }
+
+  // Projected standings
+  const proj = document.getElementById("projStandings");
+  proj.innerHTML = (o.predictedStandings || []).map(p => `
+    <div class="proj-card ${p.rank === 1 ? "podium-1" : ""}">
+      <div class="proj-rank">${p.rank}</div>
+      <div>
+        <div class="proj-name">${p.name}</div>
+        <div class="proj-top">Top team: ${p.topTeam}</div>
+        <div class="proj-summary">${p.summary}</div>
+      </div>
+      <div style="text-align:right">
+        <div class="proj-pts">${p.projected}</div>
+        <div class="proj-pts-label">Proj Pts</div>
+      </div>
+    </div>
+  `).join("");
+
+  // Storylines
+  const sg = document.getElementById("storyGrid");
+  sg.innerHTML = (o.storylines || []).map(s => `
+    <div class="story-card">
+      <div class="story-title">${s.title}</div>
+      <div class="story-body">${s.body}</div>
+    </div>
+  `).join("");
+
+  // Group narratives
+  const gn = document.getElementById("groupNarrGrid");
+  gn.innerHTML = (o.groupNarratives || []).map(g => `
+    <div class="gn-card">
+      <div class="gn-letter">GROUP ${g.group}</div>
+      <div class="gn-headline">${g.headline}</div>
+      <div class="gn-lead">${g.lead}</div>
+      <div class="gn-owners">${g.ownerSpread}</div>
+    </div>
+  `).join("");
+
+  // Team blurbs (sorted by tier then alpha)
+  const blurbs = o.teamBlurbs || {};
+  const bg = document.getElementById("blurbGrid");
+  const teamsSorted = [...TEAMS].sort((a,b) => a.tier - b.tier || a.name.localeCompare(b.name));
+  bg.innerHTML = teamsSorted.map(t => {
+    const text = blurbs[t.name];
+    if (!text) return "";
+    const owner = STATE.picks[t.id] || "—";
+    const grp = STATE.groups[t.id] || "?";
+    return `
+      <div class="blurb-card">
+        <div class="blurb-head">
+          <span class="tier-chip tier-${t.tier}">${t.tier}</span>
+          <span class="blurb-team">${t.name}</span>
+          <span class="blurb-meta">G${grp} · ${owner}</span>
+        </div>
+        <div class="blurb-body">${text}</div>
+      </div>
+    `;
+  }).join("");
+}
+
 function applyRecap() {
   const r = window.__RECAP__;
   if (!r) return;
@@ -1336,7 +1500,7 @@ function applyRecap() {
    ========================================================== */
 loadState();
 renderAll();
-loadRemote().then(() => { renderAll(); applyRecap(); });
+loadRemote().then(() => { renderAll(); applyRecap(); renderOutlook(); });
 </script>
 </body>
 </html>
