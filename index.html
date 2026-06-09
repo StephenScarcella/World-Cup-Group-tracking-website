@@ -1308,8 +1308,8 @@ async function loadRemote() {
         if (list[idx] != null) STATE.pickHistory.push({ teamId: list[idx], player: slot.player });
       });
     }
-    if (picks.groups) STATE.groups = picks.groups;
-    if (picks.avatars) STATE.avatars = picks.avatars;
+    if (picks.groups && Object.keys(picks.groups).length) STATE.groups = picks.groups;
+    if (picks.avatars && Object.keys(picks.avatars).length) STATE.avatars = picks.avatars;
   }
 
   if (results && results.matches) STATE.matches = results.matches;

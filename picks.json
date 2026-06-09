@@ -21,7 +21,8 @@
     "28": "James",
     "31": "Jim",
     "33": "Teddy",
-    "34": "Nick"
+    "34": "Nick",
+    "45": "Joe"
   },
   "pickHistory": [
     {
@@ -111,9 +112,13 @@
     {
       "teamId": 34,
       "player": "Nick"
+    },
+    {
+      "teamId": 45,
+      "player": "Joe"
     }
   ],
   "groups": {},
   "avatars": {},
-  "lockedAt": "2026-06-09T00:23:05.778Z"
+  "lockedAt": "2026-06-09T01:49:10.725Z"
 }
