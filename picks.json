@@ -1,6 +1,109 @@
 {
-  "picks": {},
-  "pickHistory": [],
+  "picks": {
+    "1": "Rob",
+    "2": "Teddy",
+    "3": "Nick",
+    "4": "Jim",
+    "5": "Nick",
+    "6": "Joe",
+    "7": "James",
+    "8": "Stev",
+    "10": "Max",
+    "12": "Rob",
+    "14": "Rob",
+    "15": "Joe",
+    "16": "Jim",
+    "17": "Stev",
+    "18": "Max",
+    "20": "Stev",
+    "27": "Teddy",
+    "28": "James",
+    "31": "Jim",
+    "33": "Teddy"
+  },
+  "pickHistory": [
+    {
+      "teamId": 2,
+      "player": "Teddy"
+    },
+    {
+      "teamId": 1,
+      "player": "Rob"
+    },
+    {
+      "teamId": 4,
+      "player": "Jim"
+    },
+    {
+      "teamId": 8,
+      "player": "Stev"
+    },
+    {
+      "teamId": 28,
+      "player": "James"
+    },
+    {
+      "teamId": 3,
+      "player": "Nick"
+    },
+    {
+      "teamId": 6,
+      "player": "Joe"
+    },
+    {
+      "teamId": 18,
+      "player": "Max"
+    },
+    {
+      "teamId": 10,
+      "player": "Max"
+    },
+    {
+      "teamId": 15,
+      "player": "Joe"
+    },
+    {
+      "teamId": 5,
+      "player": "Nick"
+    },
+    {
+      "teamId": 7,
+      "player": "James"
+    },
+    {
+      "teamId": 20,
+      "player": "Stev"
+    },
+    {
+      "teamId": 16,
+      "player": "Jim"
+    },
+    {
+      "teamId": 14,
+      "player": "Rob"
+    },
+    {
+      "teamId": 27,
+      "player": "Teddy"
+    },
+    {
+      "teamId": 33,
+      "player": "Teddy"
+    },
+    {
+      "teamId": 12,
+      "player": "Rob"
+    },
+    {
+      "teamId": 31,
+      "player": "Jim"
+    },
+    {
+      "teamId": 17,
+      "player": "Stev"
+    }
+  ],
   "groups": {},
-  "avatars": {}
+  "avatars": {},
+  "lockedAt": "2026-06-09T00:01:01.182Z"
 }
