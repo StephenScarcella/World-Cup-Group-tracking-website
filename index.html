@@ -419,6 +419,57 @@
     font-size: 10px; font-weight: 700; color: var(--red);
     letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;
   }
+
+  /* ============ GAMES TO WATCH ============ */
+  .games-watch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  @media (max-width: 800px) { .games-watch { grid-template-columns: 1fr; } }
+  .gw-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px;
+  }
+  .gw-card.high-stakes { border-color: rgba(245,200,76,0.4); background: linear-gradient(135deg, rgba(245,200,76,0.07), var(--panel)); }
+  .gw-label { font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; font-size: 11px; color: var(--gold); margin-bottom: 6px; }
+  .gw-kickoff { font-size: 10px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .gw-matchup { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .gw-team { font-weight: 700; font-size: 13px; }
+  .gw-team-owner { font-size: 10px; color: var(--ink-dim); margin-top: 1px; }
+  .gw-vs { color: var(--ink-dim); font-size: 11px; flex-shrink: 0; }
+  .gw-footer { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-dim); padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.06); }
+  .gw-stake-pts { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--gold); }
+
+  /* ============ WHO NEEDS WHAT ============ */
+  .who-needs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (max-width: 900px) { .who-needs-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .who-needs-grid { grid-template-columns: 1fr; } }
+  .wn-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .wn-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .wn-name { font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1px; }
+  .wn-pts { margin-left: auto; font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--gold); }
+  .wn-hot-cold { font-size: 17px; line-height: 1; }
+  .wn-situation { font-size: 11px; color: var(--ink-dim); line-height: 1.5; }
+  .wn-alive { font-size: 10px; color: var(--green); margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; }
+
+  /* ============ CHIRPS ============ */
+  .chirps-feed { display: flex; flex-direction: column; gap: 10px; }
+  .chirp { display: flex; gap: 10px; align-items: flex-start; }
+  .chirp-bubble {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 2px 12px 12px 12px; padding: 10px 14px; max-width: 76%;
+  }
+  .chirp-author { font-weight: 700; font-size: 12px; margin-bottom: 2px; }
+  .chirp-text { font-size: 13px; color: var(--ink); line-height: 1.45; }
+  .chirp-meta { font-size: 10px; color: var(--ink-dim); margin-top: 5px; }
+  .chirp-match-tag {
+    display: inline-block; font-size: 9px; background: rgba(245,200,76,0.12);
+    color: var(--gold); border-radius: 4px; padding: 1px 5px; letter-spacing: 0.5px;
+    text-transform: uppercase; margin-top: 3px; margin-right: 4px;
+  }
+
+  /* ============ FORM BADGES ============ */
+  .form-badges { display: flex; gap: 2px; align-items: center; }
+  .fb { width: 14px; height: 14px; border-radius: 3px; display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; }
+  .fb-W { background: var(--green); color: #0b1020; }
+  .fb-D { background: var(--gold); color: #0b1020; }
+  .fb-L { background: var(--red); color: #fff; }
 </style>
 </head>
 <body>
@@ -466,6 +517,7 @@
       </div>
     </div>
     <div class="movers" id="moversBox"></div>
+    <div class="games-watch" id="gamesWatchBox"></div>
   </div>
 </div>
 
@@ -504,6 +556,28 @@
       </thead>
       <tbody id="leaderBody"></tbody>
     </table>
+  </div>
+</section>
+
+<!-- ============ WHO NEEDS WHAT ============ -->
+<section class="block" id="whoneeds">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">WHO NEEDS <span>WHAT</span></h2>
+      <span class="sec-note">Current standing + tournament situation for each player</span>
+    </div>
+    <div class="who-needs-grid" id="whoNeedsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ CHIRPS ============ -->
+<section class="block" id="chirps">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">GROUP <span>CHAT</span></h2>
+      <span class="sec-note">The banter. Recorded for posterity. Add chirps in Admin → Chirps, download chirps.json, commit.</span>
+    </div>
+    <div class="chirps-feed" id="chirpsFeed"></div>
   </div>
 </section>
 
@@ -597,6 +671,7 @@
       <div class="admin-tabs">
         <button class="admin-tab active" data-tab="picks">Draft Picks</button>
         <button class="admin-tab" data-tab="results">Match Results</button>
+        <button class="admin-tab" data-tab="chirps">Chirps</button>
         <button class="admin-tab" data-tab="groups">Group Assignments</button>
         <button class="admin-tab" data-tab="players">Player Avatars</button>
         <button class="admin-tab" data-tab="data">Export / Import</button>
@@ -650,6 +725,30 @@
             </select>
           </div>
           <button class="btn" onclick="recordResult()">Record Result</button>
+        </div>
+      </div>
+
+      <!-- CHIRPS -->
+      <div class="admin-section" data-section="chirps">
+        <p class="admin-note" style="margin-top:0">Post trash talk for the group. Saves to localStorage → Download chirps.json → commit to repo to publish for everyone.</p>
+        <div class="admin-form">
+          <div class="field">
+            <label>Author</label>
+            <select id="chirpAuthor"></select>
+          </div>
+          <div class="field" style="flex:1">
+            <label>Message</label>
+            <input type="text" id="chirpText" placeholder="South Africa is already cooked" maxlength="200" style="min-width:260px" />
+          </div>
+          <div class="field">
+            <label>Match tag (optional)</label>
+            <input type="text" id="chirpMatch" placeholder="Mexico 2-0 South Africa" style="min-width:160px" />
+          </div>
+          <button class="btn" onclick="addChirp()">Post</button>
+        </div>
+        <div id="chirpAdminList" style="margin-top:14px;display:flex;flex-direction:column;gap:6px;max-height:260px;overflow-y:auto"></div>
+        <div style="margin-top:12px">
+          <button class="btn secondary" onclick="downloadChirpsJson()">Download chirps.json</button>
         </div>
       </div>
 
@@ -946,28 +1045,50 @@ function renderLeaderboardFull(rows) {
   `).join("");
 }
 
+function computeTeamForms() {
+  const forms = {}; // teamId -> [W/D/L, ...]
+  TEAMS.forEach(t => forms[t.id] = []);
+  STATE.matches.filter(m => m.round === "group").forEach(m => {
+    const winnerId = m.winner === "A" ? m.teamAId : m.winner === "B" ? m.teamBId
+      : m.scoreA > m.scoreB ? m.teamAId : m.scoreB > m.scoreA ? m.teamBId : null;
+    [[m.teamAId, winnerId === m.teamAId], [m.teamBId, winnerId === m.teamBId]].forEach(([tid, won]) => {
+      if (!forms[tid]) return;
+      const result = winnerId === null ? "D" : won ? "W" : "L";
+      forms[tid].push(result);
+    });
+  });
+  return forms;
+}
+
 function renderRosters(rows) {
   const grid = document.getElementById("rosterGrid");
-  grid.innerHTML = rows.map(r => `
+  const forms = computeTeamForms();
+  grid.innerHTML = rows.map(r => {
+    const hotCold = computeHotCold(r.name);
+    return `
     <div class="roster-card">
       <div class="roster-head">
         ${avatarHtml(r.name)}
-        <div class="roster-name">${r.name}</div>
+        <div class="roster-name">${r.name}${hotCold ? ` <span style="font-size:16px">${hotCold}</span>` : ""}</div>
         <div class="roster-pts">${r.pts.toFixed(1)}</div>
       </div>
       <div class="roster-teams">
         ${r.teams.length === 0 ? `<div style="color:var(--ink-dim);font-size:12px">No picks yet</div>` : ""}
-        ${r.teams.map(t => `
+        ${r.teams.map(t => {
+          const tf = (forms[t.id] || []).slice(-3);
+          const badges = tf.map(f => `<span class="fb fb-${f}">${f}</span>`).join("");
+          return `
           <div class="roster-team-row">
             <span class="tier-chip tier-${t.tier}">${t.tier}</span>
             <span>${t.name}</span>
             <span class="team-status">${t.status === "active" ? "" : t.status}</span>
+            <span class="form-badges">${badges}</span>
             <span class="team-pts">${t.earned.toFixed(1)}</span>
-          </div>
-        `).join("")}
+          </div>`;
+        }).join("")}
       </div>
-    </div>
-  `).join("");
+    </div>`;
+  }).join("");
 }
 
 function renderDraftBoard() {
@@ -1263,6 +1384,11 @@ function renderAdminLookups() {
     </div>
   `).join("");
 
+  // Chirp author dropdown
+  const ca = document.getElementById("chirpAuthor");
+  if (ca) ca.innerHTML = PLAYERS.map(p => `<option value="${p.name}">${p.name}</option>`).join("");
+  renderChirpAdmin();
+
   // Last-fetch label
   const fetched = window.__RESULTS_FETCHED_AT__;
   const lbl = document.getElementById("lastFetchLabel");
@@ -1281,12 +1407,15 @@ function renderAll() {
   renderHero(rows);
   renderLeaderboardMini(rows);
   renderLeaderboardFull(rows);
+  renderWhoNeeds(rows);
+  renderChirps();
   renderRosters(rows);
   renderDraftBoard();
   renderMatches();
   renderQualifiers();
   renderBracket();
   renderGroups();
+  renderGamesWatch();
   renderAdminLookups();
 }
 
@@ -1417,12 +1546,14 @@ async function loadRemote() {
       return await r.json();
     } catch { return null; }
   };
-  const [picks, results, recap, outlook] = await Promise.all([
+  const [picks, results, recap, outlook, chirps] = await Promise.all([
     tryFetch("./picks.json"),
     tryFetch("./results.json"),
     tryFetch("./recap.json"),
-    tryFetch("./outlook.json")
+    tryFetch("./outlook.json"),
+    tryFetch("./chirps.json")
   ]);
+  if (Array.isArray(chirps)) window.__CHIRPS__ = chirps;
   if (outlook && (outlook.predictedStandings || outlook.teamBlurbs)) {
     window.__OUTLOOK__ = outlook;
   }
@@ -1450,6 +1581,7 @@ async function loadRemote() {
   }
 
   if (results && results.matches) STATE.matches = results.matches;
+  if (results && results.scheduled) STATE.scheduled = results.scheduled;
   if (results && results.fetchedAt) window.__RESULTS_FETCHED_AT__ = results.fetchedAt;
 
   if (recap && recap.headline) {
@@ -1538,6 +1670,205 @@ function applyRecap() {
     document.getElementById("heroEyebrow").textContent =
       "DAILY RECAP — " + new Date(r.date).toLocaleDateString(undefined, {month:"long", day:"numeric", year:"numeric"}).toUpperCase();
   }
+}
+
+/* ==========================================================
+   GAMES TO WATCH
+   ========================================================== */
+function renderGamesWatch() {
+  const box = document.getElementById("gamesWatchBox");
+  if (!box) return;
+  const upcoming = (STATE.scheduled || []).slice();
+  if (!upcoming.length) { box.innerHTML = ""; return; }
+
+  const enriched = upcoming.map(m => {
+    const a = team(m.teamAId), b = team(m.teamBId);
+    if (!a || !b) return null;
+    const ownerA = STATE.picks[a.id], ownerB = STATE.picks[b.id];
+    const stakeA = ownerA ? TIER_MULT[a.tier] : 0;
+    const stakeB = ownerB ? TIER_MULT[b.tier] : 0;
+    return { ...m, teamA: a, teamB: b, ownerA, ownerB, totalStake: stakeA + stakeB };
+  }).filter(Boolean);
+
+  enriched.sort((x, y) => y.totalStake - x.totalStake || new Date(x.utcDate) - new Date(y.utcDate));
+
+  box.innerHTML = enriched.slice(0, 3).map((m, i) => {
+    const kickoff = m.utcDate
+      ? new Date(m.utcDate).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" })
+      : "TBD";
+    const highStakes = m.totalStake >= 4;
+    return `
+      <div class="gw-card ${highStakes ? "high-stakes" : ""}">
+        <div class="gw-label">${i === 0 ? "MUST WATCH" : "GAME TO WATCH"}</div>
+        <div class="gw-kickoff">${kickoff}</div>
+        <div class="gw-matchup">
+          <div>
+            <div class="gw-team">${m.teamA.name}</div>
+            ${m.ownerA ? `<div class="gw-team-owner">${m.ownerA}</div>` : ''}
+          </div>
+          <div class="gw-vs">vs</div>
+          <div style="text-align:right">
+            <div class="gw-team">${m.teamB.name}</div>
+            ${m.ownerB ? `<div class="gw-team-owner">${m.ownerB}</div>` : ''}
+          </div>
+        </div>
+        <div class="gw-footer">
+          <span class="gw-stake-pts">${m.totalStake}x</span>
+          <span>combined pts multiplier · ${[m.ownerA, m.ownerB].filter(Boolean).join(" vs ") || "no picks"}</span>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+/* ==========================================================
+   WHO NEEDS WHAT
+   ========================================================== */
+function computeHotCold(playerName) {
+  const myTeamIds = new Set(
+    Object.entries(STATE.picks).filter(([, p]) => p === playerName).map(([tid]) => parseInt(tid))
+  );
+  const recentMatches = STATE.matches.slice(-8);
+  let recentPts = 0, recentGames = 0;
+  recentMatches.forEach(m => {
+    const involvedIds = [m.teamAId, m.teamBId].filter(id => myTeamIds.has(id));
+    if (!involvedIds.length) return;
+    recentGames++;
+    involvedIds.forEach(tid => {
+      const t = team(tid);
+      if (!t || m.round !== "group") return;
+      let winnerId = m.winner === "A" ? m.teamAId : m.winner === "B" ? m.teamBId
+        : m.scoreA > m.scoreB ? m.teamAId : m.scoreB > m.scoreA ? m.teamBId : null;
+      if (winnerId === null) recentPts += SCORING.group_tie * TIER_MULT[t.tier];
+      else if (winnerId === tid) recentPts += SCORING.group_win * TIER_MULT[t.tier];
+    });
+  });
+  if (recentGames === 0) return "";
+  return recentPts > 0 ? "🔥" : "❄️";
+}
+
+function renderWhoNeeds(rows) {
+  const grid = document.getElementById("whoNeedsGrid");
+  if (!grid) return;
+  const leader = rows[0];
+  grid.innerHTML = rows.map(r => {
+    const gap = leader ? leader.pts - r.pts : 0;
+    const rank = rows.indexOf(r) + 1;
+    const hotCold = computeHotCold(r.name);
+    let situation;
+    if (rank === 1 && r.pts > 0) situation = "Leading the group — defend it.";
+    else if (rank === 1) situation = "Everyone's at zero. First results decide everything.";
+    else if (gap === 0) situation = "Tied — next result is critical.";
+    else if (gap <= 2) situation = `${gap.toFixed(1)} pt${gap !== 1 ? "s" : ""} back — one win flips it.`;
+    else if (gap <= 6) situation = `${gap.toFixed(1)} pts back — needs a streak.`;
+    else situation = `${gap.toFixed(1)} pts back — needs help and big results.`;
+    return `
+      <div class="wn-card">
+        <div class="wn-head">
+          ${avatarHtml(r.name)}
+          <div class="wn-name">${r.name}</div>
+          ${hotCold ? `<div class="wn-hot-cold">${hotCold}</div>` : ""}
+          <div class="wn-pts">${r.pts.toFixed(1)}</div>
+        </div>
+        <div class="wn-situation">${situation}</div>
+        <div class="wn-alive">${r.alive} team${r.alive !== 1 ? "s" : ""} still alive</div>
+      </div>
+    `;
+  }).join("");
+}
+
+/* ==========================================================
+   CHIRPS
+   ========================================================== */
+// localStorage key for draft chirps
+const CHIRPS_LS = "wcfantasy2026.chirps";
+
+function loadChirpsLocal() {
+  try { return JSON.parse(localStorage.getItem(CHIRPS_LS) || "null") || null; } catch { return null; }
+}
+function saveChirpsLocal(c) { localStorage.setItem(CHIRPS_LS, JSON.stringify(c)); }
+
+function getChirps() {
+  const local = loadChirpsLocal();
+  if (local) return local;
+  return window.__CHIRPS__ || [];
+}
+
+function renderChirps() {
+  const box = document.getElementById("chirpsFeed");
+  if (!box) return;
+  const chirps = getChirps();
+  if (!chirps.length) {
+    box.innerHTML = `<div style="color:var(--ink-dim);font-size:13px;padding:8px 0">No chirps yet. Trash talk starts in Admin → Chirps.</div>`;
+    return;
+  }
+  box.innerHTML = [...chirps].reverse().map(c => {
+    const p = PLAYERS.find(x => x.name === c.author);
+    const color = p ? p.color : "#888";
+    const time = c.timestamp
+      ? new Date(c.timestamp).toLocaleDateString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })
+      : "";
+    return `
+      <div class="chirp">
+        <div class="avatar" style="background:${color};flex-shrink:0;width:32px;height:32px;font-size:13px">${(c.author || "?")[0].toUpperCase()}</div>
+        <div class="chirp-bubble">
+          <div class="chirp-author" style="color:${color}">${c.author}</div>
+          <div class="chirp-text">${c.text}</div>
+          ${c.match ? `<div class="chirp-match-tag">${c.match}</div>` : ""}
+          <div class="chirp-meta">${time}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderChirpAdmin() {
+  const list = document.getElementById("chirpAdminList");
+  if (!list) return;
+  const chirps = getChirps();
+  if (!chirps.length) { list.innerHTML = `<div style="color:var(--ink-dim);font-size:12px">No chirps yet.</div>`; return; }
+  list.innerHTML = [...chirps].reverse().map((c, ri) => {
+    const i = chirps.length - 1 - ri;
+    return `
+      <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:12px">
+        <strong style="color:var(--gold)">${c.author}</strong>
+        <span style="flex:1;color:var(--ink)">${c.text}</span>
+        ${c.match ? `<span style="color:var(--ink-dim);font-size:10px">${c.match}</span>` : ""}
+        <button class="btn danger" style="padding:4px 8px;font-size:10px" onclick="deleteChirp(${i})">Del</button>
+      </div>
+    `;
+  }).join("");
+}
+
+function addChirp() {
+  const author = document.getElementById("chirpAuthor").value;
+  const text = document.getElementById("chirpText").value.trim();
+  const match = document.getElementById("chirpMatch").value.trim();
+  if (!author || !text) { alert("Pick an author and enter a message."); return; }
+  const chirps = getChirps();
+  chirps.push({ author, text, match: match || undefined, timestamp: new Date().toISOString() });
+  saveChirpsLocal(chirps);
+  document.getElementById("chirpText").value = "";
+  document.getElementById("chirpMatch").value = "";
+  renderChirps();
+  renderChirpAdmin();
+}
+
+function deleteChirp(idx) {
+  const chirps = getChirps();
+  chirps.splice(idx, 1);
+  saveChirpsLocal(chirps);
+  renderChirps();
+  renderChirpAdmin();
+}
+
+function downloadChirpsJson() {
+  const blob = new Blob([JSON.stringify(getChirps(), null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "chirps.json";
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
 }
 
 /* ==========================================================

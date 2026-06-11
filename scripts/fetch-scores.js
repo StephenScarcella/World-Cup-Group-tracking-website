@@ -39,11 +39,13 @@ const OUT = path.join(__dirname, "..", "results.json");
 
   const unmatched = new Set();
   const matches = [];
+  const scheduled = [];
   let finished = 0;
 
+  const now = new Date();
+  const sevenDaysOut = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+
   for (const m of incoming) {
-    if (m.status !== "FINISHED") continue;
-    finished++;
     const a = teamByApi(m.homeTeam?.name);
     const b = teamByApi(m.awayTeam?.name);
     if (!a) unmatched.add(m.homeTeam?.name);
@@ -56,31 +58,37 @@ const OUT = path.join(__dirname, "..", "results.json");
       continue;
     }
 
-    // football-data score.fullTime is the standings score (90 min).
-    // For knockout matches score.winner = HOME_TEAM | AWAY_TEAM | DRAW.
-    const scoreA = m.score?.fullTime?.home ?? 0;
-    const scoreB = m.score?.fullTime?.away ?? 0;
-    let winner = null;
-    if (round !== "group") {
-      if (m.score?.winner === "HOME_TEAM") winner = "A";
-      else if (m.score?.winner === "AWAY_TEAM") winner = "B";
+    if (m.status === "FINISHED") {
+      finished++;
+      const scoreA = m.score?.fullTime?.home ?? 0;
+      const scoreB = m.score?.fullTime?.away ?? 0;
+      let winner = null;
+      if (round !== "group") {
+        if (m.score?.winner === "HOME_TEAM") winner = "A";
+        else if (m.score?.winner === "AWAY_TEAM") winner = "B";
+      }
+      matches.push({
+        id: m.id, round,
+        teamAId: a.id, teamBId: b.id,
+        scoreA, scoreB, winner,
+        utcDate: m.utcDate
+      });
+    } else if (m.status === "SCHEDULED" || m.status === "TIMED") {
+      const kickoff = new Date(m.utcDate);
+      if (kickoff <= sevenDaysOut) {
+        scheduled.push({
+          id: m.id, round,
+          teamAId: a.id, teamBId: b.id,
+          utcDate: m.utcDate
+        });
+      }
     }
-
-    matches.push({
-      id: m.id,
-      round,
-      teamAId: a.id,
-      teamBId: b.id,
-      scoreA, scoreB,
-      winner,
-      utcDate: m.utcDate
-    });
   }
 
-  console.log(`Mapped ${matches.length} of ${finished} finished matches.`);
+  console.log(`Mapped ${matches.length} of ${finished} finished matches. ${scheduled.length} upcoming (next 7 days).`);
   if (unmatched.size) console.log("Unmatched names (add to ALIAS in lib/teams.js):", [...unmatched]);
 
-  const out = { fetchedAt: new Date().toISOString(), matches };
+  const out = { fetchedAt: new Date().toISOString(), matches, scheduled };
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
   console.log("Wrote", OUT);
 })();
