@@ -9,7 +9,8 @@
       "scoreA": 2,
       "scoreB": 0,
       "winner": null,
-      "utcDate": "2026-06-11T19:00:00Z"
+      "utcDate": "2026-06-11T19:00:00Z",
+      "redCards": { "14": 1, "40": 2 }
     }
   ]
 }

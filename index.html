@@ -385,6 +385,40 @@
   .mover-detail { font-size: 11px; color: var(--ink-dim); }
   .mover-delta { margin-left: auto; font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--green); }
   .mover-delta.neg { color: var(--red); }
+
+  /* ============ TRACKER MASTHEAD ============ */
+  .tracker-masthead {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(26px, 3.2vw, 42px);
+    letter-spacing: 5px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .tracker-masthead span { color: var(--gold); }
+
+  .lb-mini { height: 100%; }
+
+  .draft-locked-banner {
+    background: rgba(245,200,76,0.10);
+    border: 1px solid rgba(245,200,76,0.25);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .red-card-badge {
+    display: inline-flex; align-items: center; gap: 2px;
+    background: rgba(230,57,70,0.18); border: 1px solid rgba(230,57,70,0.35);
+    border-radius: 4px; padding: 1px 6px;
+    font-size: 10px; font-weight: 700; color: var(--red);
+    letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;
+  }
 </style>
 </head>
 <body>
@@ -401,10 +435,10 @@
       <a onclick="scrollTo2('outlook')">Outlook</a>
       <a onclick="scrollTo2('lb')">Leaderboard</a>
       <a onclick="scrollTo2('rosters')">Rosters</a>
-      <a onclick="scrollTo2('draft')">Draft</a>
       <a onclick="scrollTo2('matches')">Matches</a>
       <a onclick="scrollTo2('bracket')">Bracket</a>
       <a onclick="scrollTo2('groups')">Groups</a>
+      <a onclick="scrollTo2('draft')">Draft</a>
       <a onclick="scrollTo2('admin')">Admin</a>
       <a href="./archive/index.html">Archive</a>
     </div>
@@ -416,7 +450,8 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-card">
-        <div class="eyebrow" id="heroEyebrow">DAILY RECAP — JUNE 8, 2026</div>
+        <div class="tracker-masthead">WC GROUP <span>TRACKER</span></div>
+        <div class="eyebrow" id="heroEyebrow">DAILY RECAP — JUNE 11, 2026</div>
         <h1 class="hero-headline" id="heroHeadline">The Group is locked in. 48 teams. 8 friends. One trophy.</h1>
         <p class="hero-sub" id="heroSub">Welcome to the World Cup 2026 fantasy headquarters. Draft picks roll in below as they happen. Once matches kick off June 11, scores update automatically — tier-weighted, ranked, recapped.</p>
         <div class="hero-stats">
@@ -483,19 +518,6 @@
   </div>
 </section>
 
-<!-- ============ DRAFT BOARD ============ -->
-<section class="block" id="draft">
-  <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">DRAFT <span>BOARD</span></h2>
-      <span class="sec-note">Snake order — picks fill in as they're entered in Admin</span>
-    </div>
-    <div class="draft-board">
-      <div class="draft-grid" id="draftGrid"></div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ MATCHES ============ -->
 <section class="block" id="matches">
   <div class="container">
@@ -534,6 +556,20 @@
       <span class="sec-note">12 groups, top 2 + 8 best 3rd-place teams advance to R32</span>
     </div>
     <div class="groups-grid" id="groupsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ DRAFT BOARD ============ -->
+<section class="block" id="draft">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">DRAFT <span>BOARD</span></h2>
+      <span class="sec-note">Snake draft · All 48 picks locked · June 9, 2026</span>
+    </div>
+    <div class="draft-locked-banner">DRAFT COMPLETE — ALL 48 PICKS LOCKED</div>
+    <div class="draft-board">
+      <div class="draft-grid" id="draftGrid"></div>
+    </div>
   </div>
 </section>
 
@@ -978,11 +1014,13 @@ function renderMatches() {
       const wId = m.winner === "A" ? a.id : m.winner === "B" ? b.id : (m.scoreA > m.scoreB ? a.id : b.id);
       winLabel = ` · ${team(wId).name} advances`;
     }
+    const rcA = m.redCards && m.redCards[a.id] ? `<span class="red-card-badge">${m.redCards[a.id]} red</span>` : '';
+    const rcB = m.redCards && m.redCards[b.id] ? `<span class="red-card-badge">${m.redCards[b.id]} red</span>` : '';
     return `
       <div class="match-card">
         <div>
           <div class="match-meta" style="text-align:left">${roundLabel}${winLabel}</div>
-          <div class="match-side"><span class="tier-chip tier-${a.tier}">${a.tier}</span><span class="match-team">${a.name}</span></div>
+          <div class="match-side"><span class="tier-chip tier-${a.tier}">${a.tier}</span><span class="match-team">${a.name}</span>${rcA}</div>
         </div>
         <div>
           <div class="match-meta">FINAL</div>
@@ -990,7 +1028,7 @@ function renderMatches() {
         </div>
         <div>
           <div class="match-meta" style="text-align:right">&nbsp;</div>
-          <div class="match-side right"><span class="match-team">${b.name}</span><span class="tier-chip tier-${b.tier}">${b.tier}</span></div>
+          <div class="match-side right">${rcB}<span class="match-team">${b.name}</span><span class="tier-chip tier-${b.tier}">${b.tier}</span></div>
         </div>
       </div>
     `;
@@ -1141,7 +1179,14 @@ function renderHero(rows) {
   const totalPicks = Object.keys(STATE.picks).length;
   document.getElementById("statTop").textContent = rows[0] ? rows[0].pts.toFixed(1) : "—";
   document.getElementById("statMatches").textContent = STATE.matches.length;
-  document.getElementById("statPicks").textContent = `${totalPicks} / 48`;
+  document.getElementById("statPicks").textContent = totalPicks >= 48 ? "LOCKED" : `${totalPicks} / 48`;
+
+  // Matchday pill — Day N from June 11 kickoff
+  const tournamentStart = new Date('2026-06-11T00:00:00');
+  const todayDate = new Date();
+  const dayNum = Math.max(1, Math.floor((todayDate - tournamentStart) / (1000*60*60*24)) + 1);
+  const pill = document.getElementById("dayPill");
+  if (pill) pill.textContent = "Day " + dayNum;
 
   // Build a daily recap headline
   const today = new Date();
