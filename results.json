@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-12T11:52:59.004Z",
+  "fetchedAt": "2026-06-12T19:32:51.278Z",
   "matches": [
     {
       "id": 537327,
@@ -23,13 +23,6 @@
     }
   ],
   "scheduled": [
-    {
-      "id": 537333,
-      "round": "group",
-      "teamAId": 27,
-      "teamBId": 43,
-      "utcDate": "2026-06-12T19:00:00Z"
-    },
     {
       "id": 537345,
       "round": "group",
@@ -197,6 +190,13 @@
       "teamAId": 14,
       "teamBId": 23,
       "utcDate": "2026-06-19T01:00:00Z"
+    },
+    {
+      "id": 537348,
+      "round": "group",
+      "teamAId": 15,
+      "teamBId": 24,
+      "utcDate": "2026-06-19T19:00:00Z"
     }
   ]
 }
