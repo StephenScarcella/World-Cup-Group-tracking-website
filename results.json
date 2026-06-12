@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-11T21:29:04.851Z",
+  "fetchedAt": "2026-06-12T11:52:59.004Z",
   "matches": [
     {
       "id": 537327,
@@ -9,8 +9,194 @@
       "scoreA": 2,
       "scoreB": 0,
       "winner": null,
-      "utcDate": "2026-06-11T19:00:00Z",
-      "redCards": { "14": 1, "40": 2 }
+      "utcDate": "2026-06-11T19:00:00Z"
+    },
+    {
+      "id": 537328,
+      "round": "group",
+      "teamAId": 23,
+      "teamBId": 33,
+      "scoreA": 2,
+      "scoreB": 1,
+      "winner": null,
+      "utcDate": "2026-06-12T02:00:00Z"
+    }
+  ],
+  "scheduled": [
+    {
+      "id": 537333,
+      "round": "group",
+      "teamAId": 27,
+      "teamBId": 43,
+      "utcDate": "2026-06-12T19:00:00Z"
+    },
+    {
+      "id": 537345,
+      "round": "group",
+      "teamAId": 15,
+      "teamBId": 32,
+      "utcDate": "2026-06-13T01:00:00Z"
+    },
+    {
+      "id": 537334,
+      "round": "group",
+      "teamAId": 38,
+      "teamBId": 18,
+      "utcDate": "2026-06-13T19:00:00Z"
+    },
+    {
+      "id": 537339,
+      "round": "group",
+      "teamAId": 6,
+      "teamBId": 9,
+      "utcDate": "2026-06-13T22:00:00Z"
+    },
+    {
+      "id": 537340,
+      "round": "group",
+      "teamAId": 47,
+      "teamBId": 34,
+      "utcDate": "2026-06-14T01:00:00Z"
+    },
+    {
+      "id": 537346,
+      "round": "group",
+      "teamAId": 24,
+      "teamBId": 20,
+      "utcDate": "2026-06-14T04:00:00Z"
+    },
+    {
+      "id": 537351,
+      "round": "group",
+      "teamAId": 8,
+      "teamBId": 46,
+      "utcDate": "2026-06-14T17:00:00Z"
+    },
+    {
+      "id": 537357,
+      "round": "group",
+      "teamAId": 7,
+      "teamBId": 17,
+      "utcDate": "2026-06-14T20:00:00Z"
+    },
+    {
+      "id": 537352,
+      "round": "group",
+      "teamAId": 30,
+      "teamBId": 21,
+      "utcDate": "2026-06-14T23:00:00Z"
+    },
+    {
+      "id": 537358,
+      "round": "group",
+      "teamAId": 31,
+      "teamBId": 35,
+      "utcDate": "2026-06-15T02:00:00Z"
+    },
+    {
+      "id": 537363,
+      "round": "group",
+      "teamAId": 10,
+      "teamBId": 26,
+      "utcDate": "2026-06-15T19:00:00Z"
+    },
+    {
+      "id": 537370,
+      "round": "group",
+      "teamAId": 41,
+      "teamBId": 16,
+      "utcDate": "2026-06-15T22:00:00Z"
+    },
+    {
+      "id": 537364,
+      "round": "group",
+      "teamAId": 19,
+      "teamBId": 48,
+      "utcDate": "2026-06-16T01:00:00Z"
+    },
+    {
+      "id": 537391,
+      "round": "group",
+      "teamAId": 1,
+      "teamBId": 13,
+      "utcDate": "2026-06-16T19:00:00Z"
+    },
+    {
+      "id": 537392,
+      "round": "group",
+      "teamAId": 39,
+      "teamBId": 28,
+      "utcDate": "2026-06-16T22:00:00Z"
+    },
+    {
+      "id": 537397,
+      "round": "group",
+      "teamAId": 3,
+      "teamBId": 25,
+      "utcDate": "2026-06-17T01:00:00Z"
+    },
+    {
+      "id": 537398,
+      "round": "group",
+      "teamAId": 22,
+      "teamBId": 42,
+      "utcDate": "2026-06-17T04:00:00Z"
+    },
+    {
+      "id": 537403,
+      "round": "group",
+      "teamAId": 5,
+      "teamBId": 36,
+      "utcDate": "2026-06-17T17:00:00Z"
+    },
+    {
+      "id": 537409,
+      "round": "group",
+      "teamAId": 4,
+      "teamBId": 11,
+      "utcDate": "2026-06-17T20:00:00Z"
+    },
+    {
+      "id": 537410,
+      "round": "group",
+      "teamAId": 45,
+      "teamBId": 29,
+      "utcDate": "2026-06-17T23:00:00Z"
+    },
+    {
+      "id": 537404,
+      "round": "group",
+      "teamAId": 37,
+      "teamBId": 12,
+      "utcDate": "2026-06-18T02:00:00Z"
+    },
+    {
+      "id": 537329,
+      "round": "group",
+      "teamAId": 33,
+      "teamBId": 40,
+      "utcDate": "2026-06-18T16:00:00Z"
+    },
+    {
+      "id": 537335,
+      "round": "group",
+      "teamAId": 18,
+      "teamBId": 43,
+      "utcDate": "2026-06-18T19:00:00Z"
+    },
+    {
+      "id": 537336,
+      "round": "group",
+      "teamAId": 27,
+      "teamBId": 38,
+      "utcDate": "2026-06-18T22:00:00Z"
+    },
+    {
+      "id": 537330,
+      "round": "group",
+      "teamAId": 14,
+      "teamBId": 23,
+      "utcDate": "2026-06-19T01:00:00Z"
     }
   ]
 }
