@@ -2,8 +2,12 @@ name: Fetch WC Scores
 
 on:
   schedule:
-    # Every 30 minutes. Throttle later in the off-season if you want.
-    - cron: '*/30 * * * *'
+    # 1:00 PM EDT (17:00 UTC) — after early afternoon matches
+    - cron: '0 17 * * *'
+    # 4:00 PM EDT (20:00 UTC) — after afternoon matches
+    - cron: '0 20 * * *'
+    # 11:50 PM EDT (03:50 UTC next day) — final scores of the day
+    - cron: '50 3 * * *'
   workflow_dispatch: {}
 
 jobs:
