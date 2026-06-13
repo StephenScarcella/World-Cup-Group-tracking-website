@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-12T19:32:51.278Z",
+  "fetchedAt": "2026-06-13T03:22:27.679Z",
   "matches": [
     {
       "id": 537327,
@@ -20,16 +20,29 @@
       "scoreB": 1,
       "winner": null,
       "utcDate": "2026-06-12T02:00:00Z"
-    }
-  ],
-  "scheduled": [
+    },
+    {
+      "id": 537333,
+      "round": "group",
+      "teamAId": 27,
+      "teamBId": 43,
+      "scoreA": 1,
+      "scoreB": 1,
+      "winner": null,
+      "utcDate": "2026-06-12T19:00:00Z"
+    },
     {
       "id": 537345,
       "round": "group",
       "teamAId": 15,
       "teamBId": 32,
+      "scoreA": 4,
+      "scoreB": 1,
+      "winner": null,
       "utcDate": "2026-06-13T01:00:00Z"
-    },
+    }
+  ],
+  "scheduled": [
     {
       "id": 537334,
       "round": "group",
@@ -197,6 +210,27 @@
       "teamAId": 15,
       "teamBId": 24,
       "utcDate": "2026-06-19T19:00:00Z"
+    },
+    {
+      "id": 537342,
+      "round": "group",
+      "teamAId": 34,
+      "teamBId": 9,
+      "utcDate": "2026-06-19T22:00:00Z"
+    },
+    {
+      "id": 537341,
+      "round": "group",
+      "teamAId": 6,
+      "teamBId": 47,
+      "utcDate": "2026-06-20T00:30:00Z"
+    },
+    {
+      "id": 537347,
+      "round": "group",
+      "teamAId": 20,
+      "teamBId": 32,
+      "utcDate": "2026-06-20T03:00:00Z"
     }
   ]
 }
