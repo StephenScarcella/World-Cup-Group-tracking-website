@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-06-13T12:10:31.038Z",
-  "date": "2026-06-13",
-  "yesterday": "2026-06-12",
-  "headline": "Teddy leads with 3.5 — extending the gap by +3.5.",
-  "sub": "2 matches played",
+  "generatedAt": "2026-06-14T12:29:32.745Z",
+  "date": "2026-06-14",
+  "yesterday": "2026-06-13",
+  "headline": "Joe leads with 4.5 — Nick surged +3.",
+  "sub": "4 matches played",
   "leader": {
-    "name": "Teddy",
-    "pts": 3.5
+    "name": "Joe",
+    "pts": 4.5
   },
   "bigMover": {
-    "name": "Teddy",
-    "pts": 3.5,
-    "gained": 3.5
+    "name": "Nick",
+    "pts": 3,
+    "gained": 3
   },
   "eliminated": [],
-  "matchCountYesterday": 2
+  "matchCountYesterday": 4
 }
