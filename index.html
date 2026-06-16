@@ -436,6 +436,74 @@
   .gw-footer { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-dim); padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.06); }
   .gw-stake-pts { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--gold); }
 
+  /* ============ COMMAND CENTER (hero) ============ */
+  .hero-top { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .hero-stats-inline { display:flex; gap:10px; }
+  .hsi { background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:9px; padding:7px 12px; text-align:center; min-width:78px; }
+  .hsi-label { display:block; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--ink-dim); }
+  .hsi-val { display:block; font-family:'Bebas Neue',sans-serif; font-size:20px; margin-top:2px; }
+
+  .recap-bar { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin:16px 0 18px; padding:10px 14px;
+    border-left:3px solid var(--gold); background:linear-gradient(90deg, rgba(245,200,76,0.08), transparent); border-radius:0 8px 8px 0; }
+  .recap-bar .eyebrow { flex:0 0 auto; }
+  .recap-bar .eyebrow::after { display:none; }
+  .recap-text { font-size:14px; color:var(--ink-dim); line-height:1.45; }
+  .recap-text strong { color:var(--ink); font-family:'Playfair Display', serif; font-weight:700; font-size:17px; }
+
+  .command-grid { display:grid; grid-template-columns: 1.6fr 1fr; gap:20px; align-items:start; }
+  @media (max-width: 920px){ .command-grid { grid-template-columns:1fr; } }
+  .now-panel, .race-panel { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
+  .panel-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .panel-title { margin:0; font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--gold); }
+  .now-meta { display:inline-flex; align-items:center; gap:6px; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--ink-dim); }
+
+  .now-body { display:flex; flex-direction:column; gap:10px; }
+  .match-live { display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap:10px;
+    background:rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .match-live.is-live { border-color: rgba(45,212,191,0.45); box-shadow: inset 0 0 0 1px rgba(45,212,191,0.12); }
+  .ml-side { display:flex; align-items:center; gap:9px; min-width:0; }
+  .ml-side.right { justify-content:flex-end; text-align:right; }
+  .ml-flag { font-size:22px; line-height:1; flex-shrink:0; }
+  .ml-team { font-weight:700; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .ml-owner { font-size:10px; color:var(--ink-dim); margin-top:1px; }
+  .ml-owner.unowned { opacity:.45; }
+  .ml-center { text-align:center; min-width:80px; }
+  .ml-score { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:2px; line-height:1; }
+  .ml-clock { display:inline-flex; align-items:center; gap:5px; font-size:11px; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-top:5px; }
+  .ml-clock.sched { color:var(--ink-dim); }
+  .live-dot { width:7px; height:7px; border-radius:50%; background:var(--green); animation: livePulse 1.6s infinite; }
+  @keyframes livePulse { 0%{box-shadow:0 0 0 0 rgba(45,212,191,.55)} 70%{box-shadow:0 0 0 7px rgba(45,212,191,0)} 100%{box-shadow:0 0 0 0 rgba(45,212,191,0)} }
+  .now-empty { color:var(--ink-dim); font-size:13px; padding:10px 0; }
+
+  .lb-mini-body .lb-row { display:grid; grid-template-columns: 26px 34px 1fr auto 38px; gap:10px; align-items:center; padding:7px 8px; border-radius:8px; }
+  .lb-mini-body .lb-row:nth-child(odd){ background:rgba(255,255,255,0.02); }
+  .lb-mini-body .lb-row.podium-1 { background:linear-gradient(90deg, rgba(245,200,76,0.18), transparent); }
+  .lb-mini-body .lb-rank { font-family:'Bebas Neue',sans-serif; font-size:18px; color:var(--ink-dim); }
+  .lb-mini-body .lb-row.podium-1 .lb-rank { color:var(--gold); }
+  .lb-mini-body .lb-name { font-weight:600; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .lb-mini-body .lb-pts { font-family:'Bebas Neue',sans-serif; font-size:20px; }
+  .lb-move { font-size:11px; font-weight:700; text-align:right; }
+  .lb-move.up { color:var(--green); }
+  .lb-move.flat { color:var(--ink-dim); opacity:.45; }
+
+  .pulse-strip { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap:12px; margin-top:18px; }
+  .pulse-card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:13px 15px; display:flex; align-items:center; gap:12px; }
+  .pulse-card.mover { border-color:rgba(45,212,191,0.30); }
+  .pulse-card.rival { border-color:rgba(245,200,76,0.25); }
+  .pulse-icon { font-size:20px; flex-shrink:0; }
+  .pulse-label { font-size:10px; text-transform:uppercase; letter-spacing:1.5px; color:var(--ink-dim); }
+  .pulse-main { font-weight:700; font-size:14px; margin-top:2px; }
+  .pulse-sub { font-size:11px; color:var(--ink-dim); margin-top:1px; }
+  .pulse-delta { margin-left:auto; font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--green); }
+
+  /* ============ DRAFT (collapsed) ============ */
+  .draft-collapsible > summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:14px; padding:4px 0; }
+  .draft-collapsible > summary::-webkit-details-marker { display:none; }
+  .draft-collapsible > summary::after { content:"▸ VIEW"; font-family:'Bebas Neue',sans-serif; letter-spacing:2px; color:var(--gold); font-size:13px; flex-shrink:0; }
+  .draft-collapsible[open] > summary::after { content:"▾ HIDE"; }
+  .draft-summary-hint { font-size:12px; color:var(--ink-dim); flex:1; }
+  .draft-collapsible[open] > .draft-locked-banner { margin-top:14px; }
+
   /* ============ WHO NEEDS WHAT ============ */
   .who-needs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
   @media (max-width: 900px) { .who-needs-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -483,6 +551,7 @@
       <span class="pill" id="dayPill">Matchday —</span>
     </div>
     <div class="nav-links">
+      <a onclick="scrollTo2('live')">Live</a>
       <a onclick="scrollTo2('outlook')">Outlook</a>
       <a onclick="scrollTo2('lb')">Leaderboard</a>
       <a onclick="scrollTo2('rosters')">Rosters</a>
@@ -496,27 +565,41 @@
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<div class="hero">
+<!-- ============ HERO / COMMAND CENTER ============ -->
+<div class="hero" id="live">
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-card">
-        <div class="tracker-masthead">WC GROUP <span>TRACKER</span></div>
-        <div class="eyebrow" id="heroEyebrow">DAILY RECAP — JUNE 11, 2026</div>
-        <h1 class="hero-headline" id="heroHeadline">The Group is locked in. 48 teams. 8 friends. One trophy.</h1>
-        <p class="hero-sub" id="heroSub">Welcome to the World Cup 2026 fantasy headquarters. Draft picks roll in below as they happen. Once matches kick off June 11, scores update automatically — tier-weighted, ranked, recapped.</p>
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="hero-stat-label">Top Score</div><div class="hero-stat-value" id="statTop">—</div></div>
-          <div class="hero-stat"><div class="hero-stat-label">Matches Played</div><div class="hero-stat-value" id="statMatches">0</div></div>
-          <div class="hero-stat"><div class="hero-stat-label">Picks Made</div><div class="hero-stat-value" id="statPicks">0 / 48</div></div>
-        </div>
-      </div>
-      <div class="lb-mini">
-        <h3>STANDINGS</h3>
-        <div id="lbMiniBody"></div>
+    <div class="hero-top">
+      <div class="tracker-masthead">WC GROUP <span>TRACKER</span></div>
+      <div class="hero-stats-inline">
+        <div class="hsi"><span class="hsi-label">Leader</span><span class="hsi-val" id="statTop">—</span></div>
+        <div class="hsi"><span class="hsi-label">Matches</span><span class="hsi-val" id="statMatches">0</span></div>
+        <div class="hsi"><span class="hsi-label">Picks</span><span class="hsi-val" id="statPicks">0 / 48</span></div>
       </div>
     </div>
-    <div class="movers" id="moversBox"></div>
+
+    <div class="recap-bar">
+      <span class="eyebrow" id="heroEyebrow">DAILY RECAP</span>
+      <span class="recap-text"><strong id="heroHeadline">The Group is locked in.</strong> <span id="heroSub">48 teams. 8 friends. One trophy.</span></span>
+    </div>
+
+    <div class="command-grid">
+      <div class="now-panel">
+        <div class="panel-head">
+          <h3 class="panel-title" id="nowTitle">NOW PLAYING</h3>
+          <span class="now-meta" id="nowMeta"></span>
+        </div>
+        <div class="now-body" id="nowBody"></div>
+      </div>
+      <div class="race-panel">
+        <div class="panel-head">
+          <h3 class="panel-title">THE RACE</h3>
+          <span class="now-meta">live standings</span>
+        </div>
+        <div class="lb-mini-body" id="lbMiniBody"></div>
+      </div>
+    </div>
+
+    <div class="pulse-strip" id="moversBox"></div>
     <div class="games-watch" id="gamesWatchBox"></div>
   </div>
 </div>
@@ -597,7 +680,7 @@
   <div class="container">
     <div class="sec-head">
       <h2 class="sec-title">MATCH <span>CENTER</span></h2>
-      <span class="sec-note">Auto-fetched from football-data.org every 30 min via GitHub Actions. Manual entry in Admin for corrections.</span>
+      <span class="sec-note">Auto-fetched from football-data.org around each game slot (live + final) via GitHub Actions. Manual entry in Admin for corrections.</span>
     </div>
     <div class="match-list" id="matchList"></div>
     <p style="color: var(--ink-dim); font-size: 13px; margin-top: 18px;" id="noMatchesNote">No matches entered yet. Once Group A kicks off June 11, results show here.</p>
@@ -636,14 +719,16 @@
 <!-- ============ DRAFT BOARD ============ -->
 <section class="block" id="draft">
   <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">DRAFT <span>BOARD</span></h2>
-      <span class="sec-note">Snake draft · All 48 picks locked · June 9, 2026</span>
-    </div>
-    <div class="draft-locked-banner">DRAFT COMPLETE — ALL 48 PICKS LOCKED</div>
-    <div class="draft-board">
-      <div class="draft-grid" id="draftGrid"></div>
-    </div>
+    <details class="draft-collapsible">
+      <summary>
+        <span class="sec-title" style="margin:0">DRAFT <span>BOARD</span></span>
+        <span class="draft-summary-hint">Tournament's underway · all 48 picks locked June 9 — open to revisit the board</span>
+      </summary>
+      <div class="draft-locked-banner">DRAFT COMPLETE — ALL 48 PICKS LOCKED</div>
+      <div class="draft-board">
+        <div class="draft-grid" id="draftGrid"></div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -665,7 +750,7 @@
             <li>Drag that file into your GitHub repo root (replace existing <code>picks.json</code>) → commit.</li>
             <li>Netlify rebuilds in ~30s. Now all 8 visitors load the same data. Refreshes won't wipe it.</li>
           </ol>
-          Match scores are different — those auto-fetch every 30 min and save themselves. You only handle picks / groups / avatars / recap copy.
+          Match scores are different — those auto-fetch around each game slot (a live poll mid-match and a final poll after) and save themselves. You only handle picks / groups / avatars / recap copy.
         </div>
       </div>
       <div class="admin-tabs">
@@ -884,6 +969,8 @@ let STATE = {
   picks: {},          // teamId -> playerName
   pickHistory: [],    // [{teamId, player}, ...] in order
   matches: [],        // {round, teamAId, teamBId, scoreA, scoreB, winner?, id}
+  live: [],           // {teamAId, teamBId, scoreA, scoreB, status, minute, utcDate} in progress
+  scheduled: [],      // {teamAId, teamBId, utcDate} upcoming
   groups: {},         // teamId -> "A".."L"
   avatars: {},        // playerName -> url
   apiKey: ""
@@ -909,6 +996,31 @@ function saveState() {
 const team = (id) => TEAMS.find(t => t.id == id);
 const teamByName = (n) => TEAMS.find(t => t.name.toLowerCase() === (n||"").trim().toLowerCase());
 
+// Flag emoji per team (ISO-3166 alpha-2 -> regional indicators).
+const FLAG_ISO = {
+  "France":"FR","Spain":"ES","Argentina":"AR","Portugal":"PT","Brazil":"BR",
+  "Netherlands":"NL","Germany":"DE","Morocco":"MA","Belgium":"BE","Croatia":"HR",
+  "Colombia":"CO","Senegal":"SN","Mexico":"MX","United States":"US","Uruguay":"UY",
+  "Japan":"JP","Switzerland":"CH","Iran":"IR","Turkey":"TR","Ecuador":"EC",
+  "Austria":"AT","South Korea":"KR","Australia":"AU","Algeria":"DZ","Egypt":"EG",
+  "Canada":"CA","Norway":"NO","Panama":"PA","Ivory Coast":"CI","Sweden":"SE",
+  "Paraguay":"PY","Czechia":"CZ","Tunisia":"TN","DR Congo":"CD","Uzbekistan":"UZ",
+  "Qatar":"QA","Iraq":"IQ","South Africa":"ZA","Saudi Arabia":"SA","Jordan":"JO",
+  "Bosnia and Herzegovina":"BA","Cape Verde":"CV","Ghana":"GH","Curacao":"CW",
+  "Haiti":"HT","New Zealand":"NZ"
+};
+// England & Scotland use subdivision flag sequences, not country codes.
+const FLAG_SPECIAL = {
+  "England":"\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}",
+  "Scotland":"\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}"
+};
+function flagEmoji(name) {
+  if (FLAG_SPECIAL[name]) return FLAG_SPECIAL[name];
+  const iso = FLAG_ISO[name];
+  if (!iso) return "🏳️";
+  return String.fromCodePoint(...[...iso].map(c => 0x1F1E6 + c.charCodeAt(0) - 65));
+}
+
 function getNextPickIndex() {
   return STATE.pickHistory.length;
 }
@@ -918,8 +1030,10 @@ function getNextPicker() {
   return DRAFT_ORDER[idx];
 }
 
-// Compute leaderboard from STATE
-function computeLeaderboard() {
+// Compute leaderboard from STATE. Pass a custom match set (e.g. "everything
+// before today") to compute momentum; defaults to all known finished matches.
+function computeLeaderboard(matchSet) {
+  const MATCHES = matchSet || STATE.matches;
   const rows = PLAYERS.map(p => ({
     name: p.name, color: p.color,
     teams: [], pts: 0,
@@ -939,7 +1053,7 @@ function computeLeaderboard() {
   const advancedTo = {}; // teamId -> highest round reached (group=0, r32=1, ...)
   const roundOrder = ["group","r32","r16","qf","sf","final"];
 
-  STATE.matches.forEach(m => {
+  MATCHES.forEach(m => {
     const a = team(m.teamAId), b = team(m.teamBId);
     if (!a || !b) return;
     let winnerId = null;
@@ -1015,16 +1129,36 @@ function avatarHtml(name) {
   return `<div class="avatar" style="${svgInitial(name,color)}">${(name||"?")[0].toUpperCase()}</div>`;
 }
 
+// Points each player has gained from matches finished in the last ~30h.
+// Used for the "on the rise" callout and the momentum arrows in THE RACE.
+function computeMomentum(rows) {
+  const cutoff = Date.now() - 30 * 60 * 60 * 1000;
+  const recent = STATE.matches.filter(m => m.utcDate && new Date(m.utcDate).getTime() >= cutoff);
+  if (!recent.length) return { byName: {}, any: false };
+  const recentIds = new Set(recent.map(m => m.id));
+  const oldRows = computeLeaderboard(STATE.matches.filter(m => !recentIds.has(m.id)));
+  const oldByName = Object.fromEntries(oldRows.map(r => [r.name, r.pts]));
+  const byName = {};
+  rows.forEach(r => { byName[r.name] = +(r.pts - (oldByName[r.name] || 0)).toFixed(1); });
+  return { byName, any: true };
+}
+
 function renderLeaderboardMini(rows) {
   const box = document.getElementById("lbMiniBody");
-  box.innerHTML = rows.map((r, i) => `
+  if (!box) return;
+  const mo = computeMomentum(rows).byName;
+  box.innerHTML = rows.map((r, i) => {
+    const d = mo[r.name] || 0;
+    const move = d > 0 ? `<div class="lb-move up">▲${d}</div>` : `<div class="lb-move flat">—</div>`;
+    return `
     <div class="lb-row ${i === 0 ? 'podium-1' : ''}">
       <div class="lb-rank">${i+1}</div>
       ${avatarHtml(r.name)}
       <div class="lb-name">${r.name}</div>
       <div class="lb-pts">${r.pts.toFixed(1)}</div>
-    </div>
-  `).join("");
+      ${move}
+    </div>`;
+  }).join("");
 }
 
 function renderLeaderboardFull(rows) {
@@ -1298,50 +1432,182 @@ function renderGroups() {
 
 function renderHero(rows) {
   const totalPicks = Object.keys(STATE.picks).length;
-  document.getElementById("statTop").textContent = rows[0] ? rows[0].pts.toFixed(1) : "—";
-  document.getElementById("statMatches").textContent = STATE.matches.length;
-  document.getElementById("statPicks").textContent = totalPicks >= 48 ? "LOCKED" : `${totalPicks} / 48`;
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  set("statTop", rows[0] ? rows[0].pts.toFixed(1) : "—");
+  set("statMatches", STATE.matches.length);
+  set("statPicks", totalPicks >= 48 ? "LOCKED" : `${totalPicks} / 48`);
 
   // Matchday pill — Day N from June 11 kickoff
   const tournamentStart = new Date('2026-06-11T00:00:00');
-  const todayDate = new Date();
-  const dayNum = Math.max(1, Math.floor((todayDate - tournamentStart) / (1000*60*60*24)) + 1);
+  const dayNum = Math.max(1, Math.floor((new Date() - tournamentStart) / (1000*60*60*24)) + 1);
   const pill = document.getElementById("dayPill");
   if (pill) pill.textContent = "Day " + dayNum;
 
-  // Build a daily recap headline
-  const today = new Date();
-  document.getElementById("heroEyebrow").textContent =
-    "DAILY RECAP — " + today.toLocaleDateString(undefined, {month:"long", day:"numeric", year:"numeric"}).toUpperCase();
-
+  // Daily recap line — applyRecap() overrides headline/sub/eyebrow if recap.json exists
+  set("heroEyebrow", "DAILY RECAP — " + new Date().toLocaleDateString(undefined, {month:"long", day:"numeric", year:"numeric"}).toUpperCase());
   if (STATE.matches.length === 0 && totalPicks === 0) {
-    document.getElementById("heroHeadline").textContent = "The Group is locking in. 48 teams. 8 friends. One trophy.";
-    document.getElementById("heroSub").textContent = "Draft is happening now. Picks roll in below as you record them in Admin. Once the World Cup kicks off June 11, results update scoring in real time.";
+    set("heroHeadline", "The Group is locking in.");
+    set("heroSub", "48 teams. 8 friends. One trophy. The leaderboard moves with every result.");
   } else if (STATE.matches.length === 0) {
-    document.getElementById("heroHeadline").textContent = `${totalPicks} of 48 picks in the books. Kickoff in sight.`;
-    document.getElementById("heroSub").textContent = "Group A opens on June 11. Once results post, the leaderboard moves.";
-  } else {
+    set("heroHeadline", `${totalPicks} of 48 picks in the books.`);
+    set("heroSub", "Kickoff in sight — once results post, the race is on.");
+  } else if (rows[0]) {
+    set("heroHeadline", `${rows[0].name} leads at ${rows[0].pts.toFixed(1)}.`);
     const lastN = STATE.matches.slice(-3).map(m => `${team(m.teamAId).name} ${m.scoreA}–${m.scoreB} ${team(m.teamBId).name}`).join(" · ");
-    document.getElementById("heroHeadline").textContent = `${rows[0].name} leads at ${rows[0].pts.toFixed(1)}.`;
-    document.getElementById("heroSub").textContent = `Recent: ${lastN}`;
+    set("heroSub", `Recent: ${lastN}`);
   }
 
-  // movers: top mover, biggest underdog drafted, current leader's #1 team
-  const movers = document.getElementById("moversBox");
-  if (rows[0] && rows[0].pts > 0) {
-    movers.innerHTML = rows.slice(0,3).map((r, i) => `
-      <div class="mover-card">
-        ${avatarHtml(r.name)}
-        <div>
-          <div class="mover-name">${i === 0 ? "Leader" : i === 1 ? "Chasing" : "Watch"}: ${r.name}</div>
-          <div class="mover-detail">${r.alive} teams alive · ${r.teams.length} drafted</div>
-        </div>
-        <div class="mover-delta">${r.pts.toFixed(1)}</div>
-      </div>
-    `).join("");
+  renderNowPanel();
+  renderPulseStrip(rows);
+}
+
+/* ==========================================================
+   NOW PLAYING — live + next-up scoreboard
+   ========================================================== */
+function liveMinute(m) {
+  if (m.minute != null) return m.minute + "'";
+  if (!m.utcDate) return "LIVE";
+  const mins = Math.floor((Date.now() - new Date(m.utcDate).getTime()) / 60000);
+  if (mins < 0) return "LIVE";
+  if (mins <= 45) return mins + "'";
+  if (mins <= 60) return "HT";          // ~15 min halftime window
+  const second = mins - 15;             // discount the break
+  return second <= 90 ? second + "'" : "90+'";
+}
+
+function matchRow(m, isLive) {
+  const a = team(m.teamAId), b = team(m.teamBId);
+  if (!a || !b) return "";
+  const ownerHtml = (own, tier) => own
+    ? `<div class="ml-owner">${own} · ${TIER_MULT[tier]}x</div>`
+    : `<div class="ml-owner unowned">unowned</div>`;
+
+  let center;
+  if (isLive) {
+    const noScore = m._noscore || m.scoreA == null;
+    const score = noScore ? `<div class="ml-score">·–·</div>` : `<div class="ml-score">${m.scoreA}–${m.scoreB}</div>`;
+    const clock = m.status === "PAUSED"
+      ? `<span class="ml-clock"><span class="live-dot"></span>HT</span>`
+      : `<span class="ml-clock"><span class="live-dot"></span>${liveMinute(m)}</span>`;
+    center = `<div class="ml-center">${score}${clock}</div>`;
   } else {
-    movers.innerHTML = "";
+    const ko = m.utcDate ? new Date(m.utcDate) : null;
+    const koTxt = ko ? ko.toLocaleString(undefined, {weekday:"short", hour:"numeric", minute:"2-digit"}) : "TBD";
+    center = `<div class="ml-center"><div class="ml-score" style="font-size:14px;color:var(--ink-dim)">vs</div><span class="ml-clock sched">${koTxt}</span></div>`;
   }
+
+  return `
+    <div class="match-live ${isLive ? "is-live" : ""}">
+      <div class="ml-side">
+        <span class="ml-flag">${flagEmoji(a.name)}</span>
+        <div><div class="ml-team">${a.name}</div>${ownerHtml(STATE.picks[a.id], a.tier)}</div>
+      </div>
+      ${center}
+      <div class="ml-side right">
+        <div><div class="ml-team">${b.name}</div>${ownerHtml(STATE.picks[b.id], b.tier)}</div>
+        <span class="ml-flag">${flagEmoji(b.name)}</span>
+      </div>
+    </div>`;
+}
+
+function renderNowPanel() {
+  const body = document.getElementById("nowBody");
+  const title = document.getElementById("nowTitle");
+  const meta = document.getElementById("nowMeta");
+  if (!body) return;
+
+  const now = Date.now();
+  const finishedIds = new Set(STATE.matches.map(m => m.id));
+
+  // Live = explicit live[] from the feed, plus any scheduled match whose
+  // kickoff has passed but hasn't finished (covers the gap between API polls).
+  let liveList = (STATE.live || []).filter(m => !finishedIds.has(m.id)).map(m => ({ ...m, _live: true }));
+  const liveIds = new Set(liveList.map(m => m.id));
+  (STATE.scheduled || []).forEach(m => {
+    if (finishedIds.has(m.id) || liveIds.has(m.id)) return;
+    const ko = m.utcDate ? new Date(m.utcDate).getTime() : null;
+    if (ko && ko <= now && (now - ko) < 3 * 60 * 60 * 1000) {
+      liveList.push({ ...m, scoreA: null, scoreB: null, status: "IN_PLAY", _noscore: true });
+    }
+  });
+  liveList.sort((a, b) => new Date(a.utcDate || 0) - new Date(b.utcDate || 0));
+
+  if (liveList.length) {
+    title.textContent = "NOW PLAYING";
+    if (meta) meta.innerHTML = `<span class="live-dot"></span> live`;
+    body.innerHTML = liveList.map(m => matchRow(m, true)).join("");
+    return;
+  }
+
+  const upcoming = (STATE.scheduled || [])
+    .filter(m => !finishedIds.has(m.id) && m.utcDate && new Date(m.utcDate).getTime() > now)
+    .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
+    .slice(0, 3);
+  if (upcoming.length) {
+    title.textContent = "NEXT UP";
+    if (meta) meta.textContent = "upcoming";
+    body.innerHTML = upcoming.map(m => matchRow(m, false)).join("");
+    return;
+  }
+
+  title.textContent = "NOW PLAYING";
+  if (meta) meta.textContent = "";
+  body.innerHTML = `<div class="now-empty">No matches live right now — the next kickoffs will appear here automatically.</div>`;
+}
+
+/* ==========================================================
+   PULSE STRIP — momentum + rivalries
+   ========================================================== */
+function renderPulseStrip(rows) {
+  const box = document.getElementById("moversBox");
+  if (!box) return;
+  const cards = [];
+
+  const mo = computeMomentum(rows);
+  if (mo.any) {
+    const top = Object.entries(mo.byName).filter(([, d]) => d > 0).sort((a, b) => b[1] - a[1])[0];
+    if (top) cards.push(`
+      <div class="pulse-card mover">
+        <span class="pulse-icon">📈</span>
+        <div>
+          <div class="pulse-label">On the rise</div>
+          <div class="pulse-main">${top[0]}</div>
+          <div class="pulse-sub">points in the last 24h</div>
+        </div>
+        <div class="pulse-delta">+${top[1]}</div>
+      </div>`);
+  }
+
+  if (rows.length >= 2 && rows[0].pts > 0) {
+    // Closest race anywhere in the table
+    let best = null;
+    for (let i = 0; i < rows.length - 1; i++) {
+      const gap = +(rows[i].pts - rows[i + 1].pts).toFixed(1);
+      if (best === null || gap < best.gap) best = { gap, a: rows[i], b: rows[i + 1], i };
+    }
+    if (best) cards.push(`
+      <div class="pulse-card rival">
+        <span class="pulse-icon">🔥</span>
+        <div>
+          <div class="pulse-label">Closest race · #${best.i + 1} vs #${best.i + 2}</div>
+          <div class="pulse-main">${best.b.name} is ${best.gap} back of ${best.a.name}</div>
+          <div class="pulse-sub">one result swings it</div>
+        </div>
+      </div>`);
+
+    const lead = +(rows[0].pts - rows[1].pts).toFixed(1);
+    cards.push(`
+      <div class="pulse-card">
+        <span class="pulse-icon">👑</span>
+        <div>
+          <div class="pulse-label">At the top</div>
+          <div class="pulse-main">${rows[0].name} leads by ${lead}</div>
+          <div class="pulse-sub">${rows[0].alive} teams still alive</div>
+        </div>
+      </div>`);
+  }
+
+  box.innerHTML = cards.join("");
 }
 
 function renderAdminLookups() {
@@ -1581,6 +1847,7 @@ async function loadRemote() {
   }
 
   if (results && results.matches) STATE.matches = results.matches;
+  if (results && results.live) STATE.live = results.live;
   if (results && results.scheduled) STATE.scheduled = results.scheduled;
   if (results && results.fetchedAt) window.__RESULTS_FETCHED_AT__ = results.fetchedAt;
 
@@ -1877,6 +2144,13 @@ function downloadChirpsJson() {
 loadState();
 renderAll();
 loadRemote().then(() => { renderAll(); applyRecap(); renderOutlook(); });
+
+// Keep the page fresh on match days: re-pull results.json for new scores
+// (the bot commits twice per game slot), and tick the live clock in between.
+setInterval(() => {
+  loadRemote().then(() => { renderAll(); applyRecap(); });
+}, 60000);
+setInterval(renderNowPanel, 30000);
 </script>
 </body>
 </html>

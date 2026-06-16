@@ -39,6 +39,7 @@ const OUT = path.join(__dirname, "..", "results.json");
 
   const unmatched = new Set();
   const matches = [];
+  const live = [];
   const scheduled = [];
   let finished = 0;
 
@@ -73,6 +74,18 @@ const OUT = path.join(__dirname, "..", "results.json");
         scoreA, scoreB, winner,
         utcDate: m.utcDate
       });
+    } else if (m.status === "IN_PLAY" || m.status === "PAUSED") {
+      // Match is happening right now — capture the running score for the
+      // "Now Playing" panel. Points are only awarded once the match FINISHED.
+      live.push({
+        id: m.id, round,
+        teamAId: a.id, teamBId: b.id,
+        scoreA: m.score?.fullTime?.home ?? 0,
+        scoreB: m.score?.fullTime?.away ?? 0,
+        status: m.status,          // IN_PLAY | PAUSED (PAUSED ≈ halftime)
+        minute: m.minute ?? null,  // free tier often omits this; UI estimates from kickoff
+        utcDate: m.utcDate
+      });
     } else if (m.status === "SCHEDULED" || m.status === "TIMED") {
       const kickoff = new Date(m.utcDate);
       if (kickoff <= sevenDaysOut) {
@@ -85,10 +98,10 @@ const OUT = path.join(__dirname, "..", "results.json");
     }
   }
 
-  console.log(`Mapped ${matches.length} of ${finished} finished matches. ${scheduled.length} upcoming (next 7 days).`);
+  console.log(`Mapped ${matches.length} of ${finished} finished matches. ${live.length} live now. ${scheduled.length} upcoming (next 7 days).`);
   if (unmatched.size) console.log("Unmatched names (add to ALIAS in lib/teams.js):", [...unmatched]);
 
-  const out = { fetchedAt: new Date().toISOString(), matches, scheduled };
+  const out = { fetchedAt: new Date().toISOString(), matches, live, scheduled };
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
   console.log("Wrote", OUT);
 })();

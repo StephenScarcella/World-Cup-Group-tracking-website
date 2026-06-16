@@ -2,12 +2,26 @@ name: Fetch WC Scores
 
 on:
   schedule:
-    # 1:00 PM EDT (17:00 UTC) — after early afternoon matches
-    - cron: '0 17 * * *'
-    # 4:00 PM EDT (20:00 UTC) — after afternoon matches
-    - cron: '0 20 * * *'
-    # 11:50 PM EDT (03:50 UTC next day) — final scores of the day
-    - cron: '50 3 * * *'
+    # Two polls per game slot, aligned to the daily noon/3/6/9/midnight EDT
+    # kickoffs. Matches run ~110-140 min, so we poll ~60 min in (live score
+    # for the "Now Playing" panel) and ~145 min in (guaranteed final score).
+    # Cron is UTC; during the tournament the US East Coast is on EDT (UTC-4).
+    #
+    # noon EDT (12:00) kickoff
+    - cron: '0 17 * * *'    # +60 min  -> 13:00 EDT (live)
+    - cron: '25 18 * * *'   # +145 min -> 14:25 EDT (final)
+    # 3 PM EDT (15:00) kickoff
+    - cron: '0 20 * * *'    # +60 min  -> 16:00 EDT (live)
+    - cron: '25 21 * * *'   # +145 min -> 17:25 EDT (final)
+    # 6 PM EDT (18:00) kickoff
+    - cron: '0 23 * * *'    # +60 min  -> 19:00 EDT (live)
+    - cron: '25 0 * * *'    # +145 min -> 20:25 EDT (final)
+    # 9 PM EDT (21:00) kickoff
+    - cron: '0 2 * * *'     # +60 min  -> 22:00 EDT (live)
+    - cron: '25 3 * * *'    # +145 min -> 23:25 EDT (final)
+    # midnight EDT (00:00) kickoff
+    - cron: '0 5 * * *'     # +60 min  -> 01:00 EDT (live)
+    - cron: '25 6 * * *'    # +145 min -> 02:25 EDT (final)
   workflow_dispatch: {}
 
 jobs:
