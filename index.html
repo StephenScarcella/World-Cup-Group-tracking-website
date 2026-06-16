@@ -634,8 +634,8 @@
       <span class="sec-note">Points = round value × tier multiplier (1x / 2x / 3x / 4x)</span>
     </div>
     <table class="leader-table">
-      <thead>
-        <tr><th>#</th><th>Player</th><th>Pts</th><th>Group</th><th>R32</th><th>R16</th><th>QF</th><th>SF</th><th>F</th><th>Teams Alive</th></tr>
+      <thead id="leaderHead">
+        <tr><th>#</th><th>Player</th><th>Pts</th><th>Group</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>Played</th><th>Alive</th></tr>
       </thead>
       <tbody id="leaderBody"></tbody>
     </table>
@@ -683,7 +683,7 @@
       <span class="sec-note">Auto-fetched from football-data.org around each game slot (live + final) via GitHub Actions. Manual entry in Admin for corrections.</span>
     </div>
     <div class="match-list" id="matchList"></div>
-    <p style="color: var(--ink-dim); font-size: 13px; margin-top: 18px;" id="noMatchesNote">No matches entered yet. Once Group A kicks off June 11, results show here.</p>
+    <p style="color: var(--ink-dim); font-size: 13px; margin-top: 18px;" id="noMatchesNote">No matches loaded yet.</p>
   </div>
 </section>
 
@@ -1163,20 +1163,46 @@ function renderLeaderboardMini(rows) {
 
 function renderLeaderboardFull(rows) {
   const body = document.getElementById("leaderBody");
-  body.innerHTML = rows.map((r, i) => `
+
+  // Tier points: sum earned across all rounds per tier bucket.
+  function tierPts(row, tier) {
+    return row.teams.filter(t => t.tier === tier).reduce((s, t) => s + (t.earned || 0), 0);
+  }
+
+  // How many finished matches has this player's teams collectively appeared in?
+  function matchesPlayed(row) {
+    const myIds = new Set(row.teams.map(t => t.id));
+    return STATE.matches.filter(m => myIds.has(m.teamAId) || myIds.has(m.teamBId)).length;
+  }
+
+  // Show a KO (knockout) column only once any R32+ match has been played.
+  const hasKO = STATE.matches.some(m => m.round !== "group");
+  const head = document.getElementById("leaderHead");
+  if (head) {
+    const koTh = hasKO ? "<th>KO</th>" : "";
+    head.innerHTML = `<tr><th>#</th><th>Player</th><th>Pts</th><th>Group</th>${koTh}<th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>Played</th><th>Alive</th></tr>`;
+  }
+
+  body.innerHTML = rows.map((r, i) => {
+    const ko = hasKO
+      ? `<td>${(r.breakdown.r32 + r.breakdown.r16 + r.breakdown.qf + r.breakdown.sf + r.breakdown.final).toFixed(1)}</td>`
+      : "";
+    const played = matchesPlayed(r);
+    return `
     <tr>
       <td><strong>${i+1}</strong></td>
       <td><div style="display:flex;align-items:center;gap:10px">${avatarHtml(r.name)}<span>${r.name}</span></div></td>
       <td class="pts-cell">${r.pts.toFixed(1)}</td>
       <td>${r.breakdown.group.toFixed(1)}</td>
-      <td>${r.breakdown.r32.toFixed(1)}</td>
-      <td>${r.breakdown.r16.toFixed(1)}</td>
-      <td>${r.breakdown.qf.toFixed(1)}</td>
-      <td>${r.breakdown.sf.toFixed(1)}</td>
-      <td>${r.breakdown.final.toFixed(1)}</td>
+      ${ko}
+      <td>${tierPts(r,1).toFixed(1)}</td>
+      <td>${tierPts(r,2).toFixed(1)}</td>
+      <td>${tierPts(r,3).toFixed(1)}</td>
+      <td>${tierPts(r,4).toFixed(1)}</td>
+      <td>${played}</td>
       <td>${r.alive} / ${r.teams.length}</td>
-    </tr>
-  `).join("");
+    </tr>`;
+  }).join("");
 }
 
 function computeTeamForms() {
