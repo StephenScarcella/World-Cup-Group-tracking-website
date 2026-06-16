@@ -680,7 +680,7 @@
   <div class="container">
     <div class="sec-head">
       <h2 class="sec-title">MATCH <span>CENTER</span></h2>
-      <span class="sec-note">Auto-fetched from football-data.org around each game slot (live + final) via GitHub Actions. Manual entry in Admin for corrections.</span>
+      <span class="sec-note">Auto-fetched from football-data.org throughout match days via GitHub Actions. Manual entry in Admin for corrections.</span>
     </div>
     <div class="match-list" id="matchList"></div>
     <p style="color: var(--ink-dim); font-size: 13px; margin-top: 18px;" id="noMatchesNote">No matches loaded yet.</p>
@@ -750,7 +750,7 @@
             <li>Drag that file into your GitHub repo root (replace existing <code>picks.json</code>) → commit.</li>
             <li>Netlify rebuilds in ~30s. Now all 8 visitors load the same data. Refreshes won't wipe it.</li>
           </ol>
-          Match scores are different — those auto-fetch around each game slot (a live poll mid-match and a final poll after) and save themselves. You only handle picks / groups / avatars / recap copy.
+          Match scores are different — those auto-fetch throughout match days and save themselves. You only handle picks / groups / avatars / recap copy.
         </div>
       </div>
       <div class="admin-tabs">
@@ -861,7 +861,7 @@
         </div>
         <p class="admin-note" style="margin-top:14px"><strong>Locking in the draft for the group:</strong> Once all 48 picks are in, click <em>Download picks.json</em> and commit that file to the repo root. The next deploy makes those picks visible to all 8 visitors without anyone needing to import.</p>
         <hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
-        <p class="admin-note"><strong>Score auto-fetch:</strong> The football-data.org API key lives as a GitHub repo secret (<code>FOOTBALL_DATA_KEY</code>) — <em>not</em> in your browser. GitHub Actions runs every 30 min, writes <code>results.json</code> to the repo, and Netlify redeploys. All 8 visitors see the same scores without anyone typing a key.</p>
+        <p class="admin-note"><strong>Score auto-fetch:</strong> The football-data.org API key lives as a GitHub repo secret (<code>FOOTBALL_DATA_KEY</code>) — <em>not</em> in your browser. GitHub Actions runs every ~10 min and writes <code>results.json</code> to the repo; the site reads it straight from GitHub (no Netlify redeploy needed). All 8 visitors see the same scores without anyone typing a key.</p>
         <p class="admin-note">Last fetch: <strong id="lastFetchLabel">checking…</strong></p>
         <p class="admin-note">To force a fresh fetch (don't wait for cron): repo → <em>Actions</em> tab → <em>Fetch WC Scores</em> → <em>Run workflow</em>.</p>
       </div>
@@ -2179,7 +2179,7 @@ renderAll();
 loadRemote().then(() => { renderAll(); applyRecap(); renderOutlook(); });
 
 // Keep the page fresh on match days: re-pull results.json for new scores
-// (the bot commits twice per game slot), and tick the live clock in between.
+// (the bot commits roughly every 10 min), and tick the live clock in between.
 setInterval(() => {
   loadRemote().then(() => { renderAll(); applyRecap(); });
 }, 60000);
