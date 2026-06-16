@@ -36,6 +36,7 @@ const ALIAS = {
   "iran (islamic republic of)": "Iran",
   "republic of ireland": "Ireland",
   "cabo verde": "Cape Verde",
+  "cape verde islands": "Cape Verde",
   "curaçao": "Curacao",
   "dr congo": "DR Congo",
   "congo dr": "DR Congo",
