@@ -1838,9 +1838,16 @@ async function loadRemote() {
       return await r.json();
     } catch { return null; }
   };
+  // results.json is read straight from GitHub raw so live scores update
+  // WITHOUT triggering a Netlify rebuild (the score-bot commits go to the
+  // repo; Netlify skips deploys for results.json-only commits). Falls back
+  // to the locally-deployed copy if raw is unreachable.
+  const RESULTS_RAW = "https://raw.githubusercontent.com/StephenScarcella/World-Cup-Group-tracking-website/main/results.json";
+  const fetchResults = async () => (await tryFetch(RESULTS_RAW)) || (await tryFetch("./results.json"));
+
   const [picks, results, recap, outlook, chirps] = await Promise.all([
     tryFetch("./picks.json"),
-    tryFetch("./results.json"),
+    fetchResults(),
     tryFetch("./recap.json"),
     tryFetch("./outlook.json"),
     tryFetch("./chirps.json")

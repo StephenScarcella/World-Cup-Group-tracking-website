@@ -1,2 +1,6 @@
 [build]
   publish = "."
+  # Skip deploys for score-bot commits that only touch results.json — the
+  # page reads results.json from GitHub raw, so those don't need a rebuild.
+  # See netlify-ignore.sh for the logic.
+  ignore = "bash netlify-ignore.sh"

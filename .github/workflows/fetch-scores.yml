@@ -2,26 +2,12 @@ name: Fetch WC Scores
 
 on:
   schedule:
-    # Two polls per game slot, aligned to the daily noon/3/6/9/midnight EDT
-    # kickoffs. Matches run ~110-140 min, so we poll ~60 min in (live score
-    # for the "Now Playing" panel) and ~145 min in (guaranteed final score).
-    # Cron is UTC; during the tournament the US East Coast is on EDT (UTC-4).
-    #
-    # noon EDT (12:00) kickoff
-    - cron: '0 17 * * *'    # +60 min  -> 13:00 EDT (live)
-    - cron: '25 18 * * *'   # +145 min -> 14:25 EDT (final)
-    # 3 PM EDT (15:00) kickoff
-    - cron: '0 20 * * *'    # +60 min  -> 16:00 EDT (live)
-    - cron: '25 21 * * *'   # +145 min -> 17:25 EDT (final)
-    # 6 PM EDT (18:00) kickoff
-    - cron: '0 23 * * *'    # +60 min  -> 19:00 EDT (live)
-    - cron: '25 0 * * *'    # +145 min -> 20:25 EDT (final)
-    # 9 PM EDT (21:00) kickoff
-    - cron: '0 2 * * *'     # +60 min  -> 22:00 EDT (live)
-    - cron: '25 3 * * *'    # +145 min -> 23:25 EDT (final)
-    # midnight EDT (00:00) kickoff
-    - cron: '0 5 * * *'     # +60 min  -> 01:00 EDT (live)
-    - cron: '25 6 * * *'    # +145 min -> 02:25 EDT (final)
+    # Every 10 minutes. The site reads results.json straight from GitHub raw
+    # and Netlify skips deploys for results.json-only commits, so frequent
+    # updates cost nothing on Netlify. Runs that find no score change make no
+    # commit. (GitHub runs scheduled workflows on a best-effort basis and may
+    # delay them under load.)
+    - cron: '*/10 * * * *'
   workflow_dispatch: {}
 
 jobs:
