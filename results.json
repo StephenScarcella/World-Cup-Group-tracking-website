@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-17T13:00:01.457Z",
+  "fetchedAt": "2026-06-17T20:38:43.618Z",
   "matches": [
     {
       "id": 537327,
@@ -200,24 +200,32 @@
       "scoreB": 1,
       "winner": null,
       "utcDate": "2026-06-17T04:00:00Z"
-    }
-  ],
-  "live": [],
-  "scheduled": [
+    },
     {
       "id": 537403,
       "round": "group",
       "teamAId": 5,
       "teamBId": 36,
+      "scoreA": 1,
+      "scoreB": 1,
+      "winner": null,
       "utcDate": "2026-06-17T17:00:00Z"
-    },
+    }
+  ],
+  "live": [
     {
       "id": 537409,
       "round": "group",
       "teamAId": 4,
       "teamBId": 11,
+      "scoreA": 1,
+      "scoreB": 0,
+      "status": "IN_PLAY",
+      "minute": null,
       "utcDate": "2026-06-17T20:00:00Z"
-    },
+    }
+  ],
+  "scheduled": [
     {
       "id": 537410,
       "round": "group",
@@ -399,6 +407,20 @@
       "teamAId": 12,
       "teamBId": 36,
       "utcDate": "2026-06-24T02:00:00Z"
+    },
+    {
+      "id": 537337,
+      "round": "group",
+      "teamAId": 18,
+      "teamBId": 27,
+      "utcDate": "2026-06-24T19:00:00Z"
+    },
+    {
+      "id": 537338,
+      "round": "group",
+      "teamAId": 43,
+      "teamBId": 38,
+      "utcDate": "2026-06-24T19:00:00Z"
     }
   ]
 }
