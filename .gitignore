@@ -2,3 +2,7 @@ node_modules/
 .DS_Store
 *.log
 .env
+
+# claude.design artifacts (regenerable via scripts/build-design-file.js)
+the-group-DESIGN.html
+The Group - WC2026.html

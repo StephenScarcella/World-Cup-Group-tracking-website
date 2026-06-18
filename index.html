@@ -9,23 +9,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b1020;
-    --bg-2: #121833;
-    --panel: #161d3d;
-    --panel-2: #1d2550;
-    --line: #2a335f;
-    --ink: #f6f3e8;
-    --ink-dim: #b9bfd6;
-    --gold: #f5c84c;
-    --red: #e63946;
-    --green: #2dd4bf;
-    --tier1: #f5c84c;
-    --tier2: #c0c0c0;
-    --tier3: #cd7f32;
-    --tier4: #6b7280;
+    --bg:#070a14; --bg-2:#0c1122; --panel:#111730; --panel-2:#161e3c; --panel-hi:#1c2750;
+    --line:#273158; --line-2:#3a4673; --line-soft:rgba(255,255,255,.06);
+    --ink:#f6f3e8; --ink-dim:#9aa3c2; --ink-faint:#6c7498;
+    --gold:#f3c64a; --gold-2:#ffd76a; --gold-soft:rgba(243,198,74,.12);
+    --red:#ef4759; --green:#2dd4bf;
+    --tier1:#f3c64a; --tier2:#cfd3dc; --tier3:#d08a3e; --tier4:#5f6885;
+    --r-sm:8px; --r-md:14px; --r-lg:20px;
+    --ease:cubic-bezier(.2,.7,.2,1);
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; color: var(--ink); font-family: 'Inter', system-ui, sans-serif; }
+  body {
+    -webkit-font-smoothing: antialiased; line-height: 1.5;
+    background:
+      radial-gradient(1100px 560px at 82% -8%, rgba(243,198,74,.07), transparent 58%),
+      radial-gradient(900px 480px at -8% 8%, rgba(45,212,191,.05), transparent 55%),
+      var(--bg);
+    background-attachment: fixed;
+  }
   a { color: var(--gold); text-decoration: none; }
   .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 
@@ -475,6 +478,10 @@
   @keyframes livePulse { 0%{box-shadow:0 0 0 0 rgba(45,212,191,.55)} 70%{box-shadow:0 0 0 7px rgba(45,212,191,0)} 100%{box-shadow:0 0 0 0 rgba(45,212,191,0)} }
   .now-empty { color:var(--ink-dim); font-size:13px; padding:10px 0; }
 
+  /* standings -> roster quick-jump highlight */
+  @keyframes jumpFlash{0%{box-shadow:0 0 0 0 rgba(243,198,74,0);border-color:var(--line)}28%{box-shadow:0 0 0 3px rgba(243,198,74,.4);border-color:var(--gold)}100%{box-shadow:0 0 0 0 rgba(243,198,74,0);border-color:var(--line)}}
+  .roster-card.jump-flash{animation:jumpFlash 1.5s var(--ease)}
+
   .lb-mini-body .lb-row { display:grid; grid-template-columns: 26px 34px 1fr auto 38px; gap:10px; align-items:center; padding:7px 8px; border-radius:8px; }
   .lb-mini-body .lb-row:nth-child(odd){ background:rgba(255,255,255,0.02); }
   .lb-mini-body .lb-row.podium-1 { background:linear-gradient(90deg, rgba(245,200,76,0.18), transparent); }
@@ -552,13 +559,14 @@
     </div>
     <div class="nav-links">
       <a onclick="scrollTo2('live')">Live</a>
-      <a onclick="scrollTo2('outlook')">Outlook</a>
-      <a onclick="scrollTo2('lb')">Leaderboard</a>
+      <a onclick="scrollTo2('lb')">Standings</a>
       <a onclick="scrollTo2('rosters')">Rosters</a>
+      <a onclick="scrollTo2('groups')">Groups</a>
       <a onclick="scrollTo2('matches')">Matches</a>
       <a onclick="scrollTo2('bracket')">Bracket</a>
-      <a onclick="scrollTo2('groups')">Groups</a>
       <a onclick="scrollTo2('draft')">Draft</a>
+      <a onclick="scrollTo2('outlook')">Outlook</a>
+      <a onclick="scrollTo2('chirps')">Chat</a>
       <a onclick="scrollTo2('admin')">Admin</a>
       <a href="./archive/index.html">Archive</a>
     </div>
@@ -604,6 +612,101 @@
   </div>
 </div>
 
+<!-- ============ FULL LEADERBOARD ============ -->
+<section class="block" id="lb">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">FULL <span>LEADERBOARD</span></h2>
+      <span class="sec-note">Points = round value × tier multiplier (1x / 2x / 3x / 4x)</span>
+    </div>
+    <table class="leader-table">
+      <thead id="leaderHead">
+        <tr><th>#</th><th>Player</th><th>Pts</th><th>Group</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>Played</th><th>Alive</th></tr>
+      </thead>
+      <tbody id="leaderBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ ROSTERS ============ -->
+<section class="block" id="rosters">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">ROSTER <span>BREAKDOWN</span></h2>
+      <span class="sec-note">Each player's 6 drafted teams + tier + status</span>
+    </div>
+    <div class="roster-grid" id="rosterGrid"></div>
+  </div>
+</section>
+
+<!-- ============ GROUPS ============ -->
+<section class="block" id="groups">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">GROUP <span>STANDINGS</span></h2>
+      <span class="sec-note">12 groups, top 2 + 8 best 3rd-place teams advance to R32</span>
+    </div>
+    <div class="groups-grid" id="groupsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ MATCHES ============ -->
+<section class="block" id="matches">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">MATCH <span>CENTER</span></h2>
+      <span class="sec-note">Auto-fetched from football-data.org throughout match days via GitHub Actions. Manual entry in Admin for corrections.</span>
+    </div>
+    <div class="match-list" id="matchList"></div>
+    <p style="color: var(--ink-dim); font-size: 13px; margin-top: 18px;" id="noMatchesNote">No matches loaded yet.</p>
+  </div>
+</section>
+
+<!-- ============ WHO NEEDS WHAT ============ -->
+<section class="block" id="whoneeds">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">WHO NEEDS <span>WHAT</span></h2>
+      <span class="sec-note">Current standing + tournament situation for each player</span>
+    </div>
+    <div class="who-needs-grid" id="whoNeedsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ BRACKET ============ -->
+<section class="block" id="bracket">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">TOURNAMENT <span>BRACKET</span></h2>
+      <span class="sec-note">Group qualifiers (top 2 + best 3rd) + knockout path. Fills in as matches finish.</span>
+    </div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;letter-spacing:2px;color:var(--gold);font-size:18px;margin:8px 0 12px">GROUP STAGE QUALIFIERS</h3>
+    <div id="qualifiersStrip" class="qualifiers-strip"></div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;letter-spacing:2px;color:var(--gold);font-size:18px;margin:24px 0 12px">KNOCKOUT BRACKET</h3>
+    <div class="bracket-scroll">
+      <div class="bracket-grid" id="bracketGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DRAFT BOARD ============ -->
+<section class="block" id="draft">
+  <div class="container">
+    <details class="draft-collapsible">
+      <summary>
+        <span class="sec-title" style="margin:0">DRAFT <span>BOARD</span></span>
+        <span class="draft-summary-hint">Tournament's underway · all 48 picks locked June 9 — open to revisit the board</span>
+      </summary>
+      <div class="draft-locked-banner">DRAFT COMPLETE — ALL 48 PICKS LOCKED</div>
+      <div class="draft-board">
+        <div class="draft-grid" id="draftGrid"></div>
+      </div>
+    </details>
+  </div>
+</section>
+
 <!-- ============ OUTLOOK ============ -->
 <section class="block" id="outlook" style="display:none">
   <div class="container">
@@ -626,33 +729,6 @@
   </div>
 </section>
 
-<!-- ============ FULL LEADERBOARD ============ -->
-<section class="block" id="lb">
-  <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">FULL <span>LEADERBOARD</span></h2>
-      <span class="sec-note">Points = round value × tier multiplier (1x / 2x / 3x / 4x)</span>
-    </div>
-    <table class="leader-table">
-      <thead id="leaderHead">
-        <tr><th>#</th><th>Player</th><th>Pts</th><th>Group</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>Played</th><th>Alive</th></tr>
-      </thead>
-      <tbody id="leaderBody"></tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ============ WHO NEEDS WHAT ============ -->
-<section class="block" id="whoneeds">
-  <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">WHO NEEDS <span>WHAT</span></h2>
-      <span class="sec-note">Current standing + tournament situation for each player</span>
-    </div>
-    <div class="who-needs-grid" id="whoNeedsGrid"></div>
-  </div>
-</section>
-
 <!-- ============ CHIRPS ============ -->
 <section class="block" id="chirps">
   <div class="container">
@@ -661,74 +737,6 @@
       <span class="sec-note">The banter. Recorded for posterity. Add chirps in Admin → Chirps, download chirps.json, commit.</span>
     </div>
     <div class="chirps-feed" id="chirpsFeed"></div>
-  </div>
-</section>
-
-<!-- ============ ROSTERS ============ -->
-<section class="block" id="rosters">
-  <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">ROSTER <span>BREAKDOWN</span></h2>
-      <span class="sec-note">Each player's 6 drafted teams + tier + status</span>
-    </div>
-    <div class="roster-grid" id="rosterGrid"></div>
-  </div>
-</section>
-
-<!-- ============ MATCHES ============ -->
-<section class="block" id="matches">
-  <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">MATCH <span>CENTER</span></h2>
-      <span class="sec-note">Auto-fetched from football-data.org throughout match days via GitHub Actions. Manual entry in Admin for corrections.</span>
-    </div>
-    <div class="match-list" id="matchList"></div>
-    <p style="color: var(--ink-dim); font-size: 13px; margin-top: 18px;" id="noMatchesNote">No matches loaded yet.</p>
-  </div>
-</section>
-
-<!-- ============ BRACKET ============ -->
-<section class="block" id="bracket">
-  <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">TOURNAMENT <span>BRACKET</span></h2>
-      <span class="sec-note">Group qualifiers (top 2 + best 3rd) + knockout path. Fills in as matches finish.</span>
-    </div>
-
-    <h3 style="font-family:'Bebas Neue',sans-serif;letter-spacing:2px;color:var(--gold);font-size:18px;margin:8px 0 12px">GROUP STAGE QUALIFIERS</h3>
-    <div id="qualifiersStrip" class="qualifiers-strip"></div>
-
-    <h3 style="font-family:'Bebas Neue',sans-serif;letter-spacing:2px;color:var(--gold);font-size:18px;margin:24px 0 12px">KNOCKOUT BRACKET</h3>
-    <div class="bracket-scroll">
-      <div class="bracket-grid" id="bracketGrid"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GROUPS ============ -->
-<section class="block" id="groups">
-  <div class="container">
-    <div class="sec-head">
-      <h2 class="sec-title">GROUP <span>STANDINGS</span></h2>
-      <span class="sec-note">12 groups, top 2 + 8 best 3rd-place teams advance to R32</span>
-    </div>
-    <div class="groups-grid" id="groupsGrid"></div>
-  </div>
-</section>
-
-<!-- ============ DRAFT BOARD ============ -->
-<section class="block" id="draft">
-  <div class="container">
-    <details class="draft-collapsible">
-      <summary>
-        <span class="sec-title" style="margin:0">DRAFT <span>BOARD</span></span>
-        <span class="draft-summary-hint">Tournament's underway · all 48 picks locked June 9 — open to revisit the board</span>
-      </summary>
-      <div class="draft-locked-banner">DRAFT COMPLETE — ALL 48 PICKS LOCKED</div>
-      <div class="draft-board">
-        <div class="draft-grid" id="draftGrid"></div>
-      </div>
-    </details>
   </div>
 </section>
 
@@ -2184,6 +2192,45 @@ setInterval(() => {
   loadRemote().then(() => { renderAll(); applyRecap(); });
 }, 60000);
 setInterval(renderNowPanel, 30000);
+</script>
+<script>
+/* ===== standings -> roster quick-jump (navigation only; safe to port) ===== */
+(function(){
+  function rosterCardFor(name){
+    var cards = document.querySelectorAll('#rosterGrid .roster-card');
+    for (var i=0;i<cards.length;i++){
+      var nm = cards[i].querySelector('.roster-name');
+      if (nm && nm.textContent.trim().split(/\s+/)[0] === name) return cards[i];
+    }
+    return null;
+  }
+  function jumpTo(name){
+    var card = rosterCardFor(name);
+    if (!card) return;
+    var nav = document.querySelector('.nav');
+    var navH = nav ? nav.offsetHeight : 56;
+    var y = card.getBoundingClientRect().top + window.pageYOffset - navH - 14;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    var prev = document.querySelectorAll('.roster-card.jump-flash');
+    for (var i=0;i<prev.length;i++) prev[i].classList.remove('jump-flash');
+    void card.offsetWidth;
+    card.classList.add('jump-flash');
+    setTimeout(function(){ card.classList.remove('jump-flash'); }, 1600);
+  }
+  document.addEventListener('click', function(e){
+    var lbRow = e.target.closest && e.target.closest('#lbMiniBody .lb-row');
+    if (lbRow){
+      var nm = lbRow.querySelector('.lb-name');
+      if (nm) jumpTo(nm.textContent.trim());
+      return;
+    }
+    var tr = e.target.closest && e.target.closest('#leaderBody tr');
+    if (tr){
+      var span = tr.querySelector('td:nth-child(2) span');
+      if (span) jumpTo(span.textContent.trim());
+    }
+  });
+})();
 </script>
 </body>
 </html>
