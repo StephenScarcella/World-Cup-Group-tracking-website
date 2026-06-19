@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-19T14:53:23.055Z",
+  "generatedAt": "2026-06-19T16:20:34.310Z",
   "date": "2026-06-19",
   "yesterday": "2026-06-18",
   "headline": "Jim and James can't be separated, both on 9.5.",
-  "sub": "Jim and James are deadlocked on 9.5, with Rob lurking at 9.0. The day belonged to Teddy (+4.5), fueled by Canada's 6–0 demolition of Joe's Qatar. James (+2) and Rob (+2) also climbed. 6 players now sit within a point of the lead.",
+  "sub": "Jim and James are deadlocked on 9.5, with Rob lurking at 9.0. The day belonged to Teddy (+3), fueled by Canada's 6–0 demolition of Joe's Qatar. Rob (+2) and Max (+2) also climbed. 6 players now sit within a point of the lead.",
   "leader": {
     "name": "Jim",
     "pts": 9.5
@@ -11,8 +11,8 @@
   "bigMover": {
     "name": "Teddy",
     "pts": 8.5,
-    "gained": 4.5
+    "gained": 3
   },
   "eliminated": [],
-  "matchCountYesterday": 4
+  "matchCountYesterday": 3
 }
