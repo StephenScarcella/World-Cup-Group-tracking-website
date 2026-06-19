@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-19T14:50:00.000Z",
+  "generatedAt": "2026-06-19T14:53:23.055Z",
   "date": "2026-06-19",
   "yesterday": "2026-06-18",
-  "headline": "Jim holds the summit at 9.5 — but James draws dead level and the top six tighten.",
-  "sub": "It's a tie at the top: Jim and James both sit on 9.5, with Rob a half-step back at 9.0. The day belonged to Teddy, though — +4.5, fueled by Canada's 6–0 demolition of Joe's Qatar — vaulting him into a three-way logjam at 8.5 alongside Nick and Joe. Rob (+3, Colombia and Mexico) and Max (+2, Switzerland) climbed too. Six players now sit within a single point. Stev (4.0) has work to do.",
+  "headline": "Jim and James can't be separated, both on 9.5.",
+  "sub": "Jim and James are deadlocked on 9.5, with Rob lurking at 9.0. The day belonged to Teddy (+4.5), fueled by Canada's 6–0 demolition of Joe's Qatar. James (+2) and Rob (+2) also climbed. 6 players now sit within a point of the lead.",
   "leader": {
     "name": "Jim",
     "pts": 9.5
@@ -14,5 +14,5 @@
     "gained": 4.5
   },
   "eliminated": [],
-  "matchCountYesterday": 5
+  "matchCountYesterday": 4
 }
