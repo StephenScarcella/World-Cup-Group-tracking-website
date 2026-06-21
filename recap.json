@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-06-20T12:16:27.571Z",
-  "date": "2026-06-20",
-  "yesterday": "2026-06-19",
-  "headline": "Joe storms to the top at 11.5 — Jim knocked off the perch.",
-  "sub": "Joe leads on 11.5, 1 clear of James. The day belonged to Joe (+3), fueled by United States's 2–0 win over James's Australia. Max (+3) and James (+1) also climbed. Stev (4.0) has ground to make up.",
+  "generatedAt": "2026-06-21T12:31:45.007Z",
+  "date": "2026-06-21",
+  "yesterday": "2026-06-20",
+  "headline": "It's a tie at the top — James and Joe share the lead at 11.5.",
+  "sub": "James and Joe are deadlocked on 11.5, with Nick lurking at 10.5. The day belonged to Stev (+3), fueled by Japan's 4–0 demolition of Teddy's Tunisia. Nick (+2) and James (+1) also climbed. Stev (7.0) has ground to make up.",
   "leader": {
-    "name": "Joe",
+    "name": "James",
     "pts": 11.5
   },
   "bigMover": {
-    "name": "Joe",
-    "pts": 11.5,
+    "name": "Stev",
+    "pts": 7,
     "gained": 3
   },
   "eliminated": [],
