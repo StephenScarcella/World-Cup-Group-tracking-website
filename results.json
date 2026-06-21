@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-20T20:52:06.981Z",
+  "fetchedAt": "2026-06-21T10:48:24.289Z",
   "matches": [
     {
       "id": 537327,
@@ -330,27 +330,25 @@
       "scoreB": 1,
       "winner": null,
       "utcDate": "2026-06-20T17:00:00Z"
-    }
-  ],
-  "live": [
+    },
     {
       "id": 537353,
       "round": "group",
       "teamAId": 8,
       "teamBId": 30,
-      "scoreA": 0,
+      "scoreA": 2,
       "scoreB": 1,
-      "status": "IN_PLAY",
-      "minute": null,
+      "winner": null,
       "utcDate": "2026-06-20T20:00:00Z"
-    }
-  ],
-  "scheduled": [
+    },
     {
       "id": 537354,
       "round": "group",
       "teamAId": 21,
       "teamBId": 46,
+      "scoreA": 0,
+      "scoreB": 0,
+      "winner": null,
       "utcDate": "2026-06-21T00:00:00Z"
     },
     {
@@ -358,8 +356,14 @@
       "round": "group",
       "teamAId": 35,
       "teamBId": 17,
+      "scoreA": 0,
+      "scoreB": 4,
+      "winner": null,
       "utcDate": "2026-06-21T04:00:00Z"
-    },
+    }
+  ],
+  "live": [],
+  "scheduled": [
     {
       "id": 537371,
       "round": "group",
@@ -569,6 +573,48 @@
       "teamAId": 26,
       "teamBId": 19,
       "utcDate": "2026-06-27T03:00:00Z"
+    },
+    {
+      "id": 537413,
+      "round": "group",
+      "teamAId": 29,
+      "teamBId": 4,
+      "utcDate": "2026-06-27T21:00:00Z"
+    },
+    {
+      "id": 537414,
+      "round": "group",
+      "teamAId": 11,
+      "teamBId": 45,
+      "utcDate": "2026-06-27T21:00:00Z"
+    },
+    {
+      "id": 537407,
+      "round": "group",
+      "teamAId": 12,
+      "teamBId": 5,
+      "utcDate": "2026-06-27T23:30:00Z"
+    },
+    {
+      "id": 537408,
+      "round": "group",
+      "teamAId": 36,
+      "teamBId": 37,
+      "utcDate": "2026-06-27T23:30:00Z"
+    },
+    {
+      "id": 537401,
+      "round": "group",
+      "teamAId": 42,
+      "teamBId": 3,
+      "utcDate": "2026-06-28T02:00:00Z"
+    },
+    {
+      "id": 537402,
+      "round": "group",
+      "teamAId": 25,
+      "teamBId": 22,
+      "utcDate": "2026-06-28T02:00:00Z"
     }
   ]
 }
