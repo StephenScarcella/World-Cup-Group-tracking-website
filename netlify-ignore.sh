@@ -3,10 +3,13 @@
 #   exit 0  -> CANCEL the deploy (skip it)
 #   exit 1  -> PROCEED with the deploy
 #
-# The score-bot commits results.json on a frequent schedule. The site reads
-# results.json directly from GitHub raw, so those commits don't need a redeploy.
-# We skip the deploy when a push changed ONLY results.json; any other change
-# (HTML/CSS/JS, picks.json, recap.json, archive/*, etc.) deploys normally.
+# The bots commit data the site reads straight from GitHub raw:
+#   - results.json  (score-bot, frequent)
+#   - recap.json / chirps.json  (nightly archive job)
+# Those commits don't need a redeploy. archive/* are historical snapshots that
+# can wait for the next real deploy. We skip the deploy when a push touched ONLY
+# those files; any other change (index.html/CSS/JS, picks.json, outlook.json,
+# scripts/*, etc.) deploys normally.
 
 set -e
 
@@ -25,11 +28,15 @@ if [ -z "$changed" ]; then
   exit 1
 fi
 
-# If anything other than results.json changed, build. Otherwise skip.
-if echo "$changed" | grep -qvx "results.json"; then
-  echo "Source/content changed — proceeding with deploy."
+# Deploy only if something OTHER than raw-served data / archive snapshots
+# changed. results.json, recap.json and chirps.json are read from GitHub raw;
+# archive/* are static history that can wait for the next real deploy.
+remaining="$(echo "$changed" | grep -vE '^(results\.json|recap\.json|chirps\.json|archive/)' || true)"
+if [ -n "$remaining" ]; then
+  echo "Source/content changed — proceeding with deploy:"
+  echo "$remaining"
   exit 1
 else
-  echo "Only results.json changed — skipping deploy (page reads it from GitHub raw)."
+  echo "Only raw-served data / archive changed — skipping deploy."
   exit 0
 fi

@@ -34,7 +34,20 @@ jobs:
           git add results.json
           if git diff --cached --quiet; then
             echo "No score changes."
-          else
-            git commit -m "scores: auto-update $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            exit 0
           fi
+          git commit -m "scores: auto-update $(date -u +%Y-%m-%dT%H:%MZ)"
+          # main is committed to frequently (scores ~every 10 min, nightly
+          # archive, occasional source pushes), so a plain push can be rejected
+          # as non-fast-forward. Integrate concurrent commits and retry; on the
+          # rare results.json overlap the freshest fetch (ours) wins.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected — rebasing on origin/main (attempt $attempt of 5)."
+            git pull --rebase -X theirs origin main || git rebase --abort || true
+          done
+          echo "Push still failing after 5 attempts." >&2
+          exit 1

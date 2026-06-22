@@ -1846,19 +1846,21 @@ async function loadRemote() {
       return await r.json();
     } catch { return null; }
   };
-  // results.json is read straight from GitHub raw so live scores update
-  // WITHOUT triggering a Netlify rebuild (the score-bot commits go to the
-  // repo; Netlify skips deploys for results.json-only commits). Falls back
+  // Bot-written data (results from the score-bot; recap/chirps from the nightly
+  // archive job) is read straight from GitHub raw so those commits update the
+  // live site WITHOUT triggering a Netlify rebuild — netlify-ignore.sh skips
+  // deploys for commits that only touch these files. Netlify only rebuilds on
+  // real source changes (index.html, picks.json, outlook.json). Each falls back
   // to the locally-deployed copy if raw is unreachable.
-  const RESULTS_RAW = "https://raw.githubusercontent.com/StephenScarcella/World-Cup-Group-tracking-website/main/results.json";
-  const fetchResults = async () => (await tryFetch(RESULTS_RAW)) || (await tryFetch("./results.json"));
+  const RAW_BASE = "https://raw.githubusercontent.com/StephenScarcella/World-Cup-Group-tracking-website/main/";
+  const fromRaw = async (file) => (await tryFetch(RAW_BASE + file)) || (await tryFetch("./" + file));
 
   const [picks, results, recap, outlook, chirps] = await Promise.all([
     tryFetch("./picks.json"),
-    fetchResults(),
-    tryFetch("./recap.json"),
+    fromRaw("results.json"),
+    fromRaw("recap.json"),
     tryFetch("./outlook.json"),
-    tryFetch("./chirps.json")
+    fromRaw("chirps.json")
   ]);
   if (Array.isArray(chirps)) window.__CHIRPS__ = chirps;
   if (outlook && (outlook.predictedStandings || outlook.teamBlurbs)) {

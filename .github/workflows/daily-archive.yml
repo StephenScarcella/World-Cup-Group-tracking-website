@@ -31,7 +31,19 @@ jobs:
           git add archive/ recap.json
           if git diff --cached --quiet; then
             echo "Nothing to archive."
-          else
-            git commit -m "archive: $(date -u +%Y-%m-%d)"
-            git push
+            exit 0
           fi
+          git commit -m "archive: $(date -u +%Y-%m-%d)"
+          # main is committed to frequently, so a plain push can be rejected as
+          # non-fast-forward. Integrate concurrent commits and retry; on the rare
+          # recap.json/archive overlap the freshest generated copy (ours) wins.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected — rebasing on origin/main (attempt $attempt of 5)."
+            git pull --rebase -X theirs origin main || git rebase --abort || true
+          done
+          echo "Push still failing after 5 attempts." >&2
+          exit 1
