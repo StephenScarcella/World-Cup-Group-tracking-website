@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-06-22T18:59:07.249Z",
-  "date": "2026-06-22",
-  "yesterday": "2026-06-21",
-  "headline": "James extends the lead to 14.5 with a +3 haul.",
-  "sub": "James leads on 14.5, 2.5 clear of Rob. The day belonged to James (+3), fueled by Egypt's 3–1 win over Nick's New Zealand. Rob (+3) and Jim (+1) also climbed. Stev (7.0) has ground to make up.",
+  "generatedAt": "2026-06-23T16:11:35.120Z",
+  "date": "2026-06-23",
+  "yesterday": "2026-06-22",
+  "headline": "Rob erupts for +4 — but James holds the top at 17.5.",
+  "sub": "James leads on 17.5, 1.5 clear of Rob. The day belonged to Rob (+4), fueled by Algeria's 2–1 win over Jim's Jordan. James (+3) and Nick (+1) also climbed. Stev (7.0) has ground to make up.",
   "leader": {
     "name": "James",
-    "pts": 14.5
+    "pts": 17.5
   },
   "bigMover": {
-    "name": "James",
-    "pts": 14.5,
-    "gained": 3
+    "name": "Rob",
+    "pts": 16,
+    "gained": 4
   },
   "eliminated": [],
-  "matchCountYesterday": 3
+  "matchCountYesterday": 4
 }
