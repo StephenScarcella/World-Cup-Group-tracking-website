@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-06-23T16:11:35.120Z",
-  "date": "2026-06-23",
-  "yesterday": "2026-06-22",
-  "headline": "Rob erupts for +4 — but James holds the top at 17.5.",
-  "sub": "James leads on 17.5, 1.5 clear of Rob. The day belonged to Rob (+4), fueled by Algeria's 2–1 win over Jim's Jordan. James (+3) and Nick (+1) also climbed. Stev (7.0) has ground to make up.",
+  "generatedAt": "2026-06-24T13:56:12.446Z",
+  "date": "2026-06-24",
+  "yesterday": "2026-06-23",
+  "headline": "Joe surges +3; James clings to 17.5.",
+  "sub": "James leads on 17.5, 0.5 clear of Rob. The day belonged to Joe (+3), fueled by Ghana's 0–0 draw with Jim's England. Rob (+1) and Nick (+1) also climbed. Stev (7.0) has ground to make up.",
   "leader": {
     "name": "James",
     "pts": 17.5
   },
   "bigMover": {
-    "name": "Rob",
-    "pts": 16,
-    "gained": 4
+    "name": "Joe",
+    "pts": 14.5,
+    "gained": 3
   },
   "eliminated": [],
   "matchCountYesterday": 4
