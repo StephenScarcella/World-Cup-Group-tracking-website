@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-06-26T13:34:19.456Z",
-  "date": "2026-06-26",
-  "yesterday": "2026-06-25",
-  "headline": "Jim erupts for +4.5 — but James holds the top at 24.5.",
-  "sub": "James leads on 24.5, 5.5 clear of Rob. The day belonged to Jim (+4.5), fueled by Ivory Coast's 2–0 win over Nick's Curacao. Max (+3.5) and Stev (+3) also climbed. Stev (10.0) has ground to make up.",
+  "generatedAt": "2026-06-27T11:16:32.638Z",
+  "date": "2026-06-27",
+  "yesterday": "2026-06-26",
+  "headline": "Rob surges +4; James clings to 26.0.",
+  "sub": "James leads on 26.0, 3 clear of Rob. The day belonged to Rob (+4), fueled by Cape Verde's 0–0 draw with Stev's Saudi Arabia. Stev (+4) and James (+1.5) also climbed. Nick (12.5) has ground to make up.",
   "leader": {
     "name": "James",
-    "pts": 24.5
+    "pts": 26
   },
   "bigMover": {
-    "name": "Jim",
-    "pts": 15.5,
-    "gained": 4.5
+    "name": "Rob",
+    "pts": 23,
+    "gained": 4
   },
   "eliminated": [],
   "matchCountYesterday": 6
