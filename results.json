@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-27T20:41:19.292Z",
+  "fetchedAt": "2026-06-28T08:33:56.033Z",
   "matches": [
     {
       "id": 537327,
@@ -660,15 +660,15 @@
       "scoreB": 1,
       "winner": null,
       "utcDate": "2026-06-27T03:00:00Z"
-    }
-  ],
-  "live": [],
-  "scheduled": [
+    },
     {
       "id": 537413,
       "round": "group",
       "teamAId": 29,
       "teamBId": 4,
+      "scoreA": 0,
+      "scoreB": 2,
+      "winner": null,
       "utcDate": "2026-06-27T21:00:00Z"
     },
     {
@@ -676,6 +676,9 @@
       "round": "group",
       "teamAId": 11,
       "teamBId": 45,
+      "scoreA": 2,
+      "scoreB": 1,
+      "winner": null,
       "utcDate": "2026-06-27T21:00:00Z"
     },
     {
@@ -683,6 +686,9 @@
       "round": "group",
       "teamAId": 12,
       "teamBId": 5,
+      "scoreA": 0,
+      "scoreB": 0,
+      "winner": null,
       "utcDate": "2026-06-27T23:30:00Z"
     },
     {
@@ -690,6 +696,9 @@
       "round": "group",
       "teamAId": 36,
       "teamBId": 37,
+      "scoreA": 3,
+      "scoreB": 1,
+      "winner": null,
       "utcDate": "2026-06-27T23:30:00Z"
     },
     {
@@ -697,6 +706,9 @@
       "round": "group",
       "teamAId": 42,
       "teamBId": 3,
+      "scoreA": 1,
+      "scoreB": 3,
+      "winner": null,
       "utcDate": "2026-06-28T02:00:00Z"
     },
     {
@@ -704,8 +716,14 @@
       "round": "group",
       "teamAId": 25,
       "teamBId": 22,
+      "scoreA": 3,
+      "scoreB": 3,
+      "winner": null,
       "utcDate": "2026-06-28T02:00:00Z"
-    },
+    }
+  ],
+  "live": [],
+  "scheduled": [
     {
       "id": 537417,
       "round": "r32",
@@ -721,6 +739,13 @@
       "utcDate": "2026-06-29T17:00:00Z"
     },
     {
+      "id": 537415,
+      "round": "r32",
+      "teamAId": 8,
+      "teamBId": 32,
+      "utcDate": "2026-06-29T20:30:00Z"
+    },
+    {
       "id": 537418,
       "round": "r32",
       "teamAId": 7,
@@ -728,11 +753,88 @@
       "utcDate": "2026-06-30T01:00:00Z"
     },
     {
+      "id": 537424,
+      "round": "r32",
+      "teamAId": 30,
+      "teamBId": 28,
+      "utcDate": "2026-06-30T17:00:00Z"
+    },
+    {
+      "id": 537416,
+      "round": "r32",
+      "teamAId": 1,
+      "teamBId": 31,
+      "utcDate": "2026-06-30T21:00:00Z"
+    },
+    {
+      "id": 537425,
+      "round": "r32",
+      "teamAId": 14,
+      "teamBId": 21,
+      "utcDate": "2026-07-01T01:00:00Z"
+    },
+    {
+      "id": 537426,
+      "round": "r32",
+      "teamAId": 4,
+      "teamBId": 36,
+      "utcDate": "2026-07-01T16:00:00Z"
+    },
+    {
+      "id": 537422,
+      "round": "r32",
+      "teamAId": 10,
+      "teamBId": 13,
+      "utcDate": "2026-07-01T20:00:00Z"
+    },
+    {
       "id": 537421,
       "round": "r32",
       "teamAId": 15,
       "teamBId": 43,
       "utcDate": "2026-07-02T00:00:00Z"
+    },
+    {
+      "id": 537420,
+      "round": "r32",
+      "teamAId": 2,
+      "teamBId": 22,
+      "utcDate": "2026-07-02T19:00:00Z"
+    },
+    {
+      "id": 537419,
+      "round": "r32",
+      "teamAId": 5,
+      "teamBId": 11,
+      "utcDate": "2026-07-02T23:00:00Z"
+    },
+    {
+      "id": 537429,
+      "round": "r32",
+      "teamAId": 18,
+      "teamBId": 25,
+      "utcDate": "2026-07-03T03:00:00Z"
+    },
+    {
+      "id": 537428,
+      "round": "r32",
+      "teamAId": 24,
+      "teamBId": 26,
+      "utcDate": "2026-07-03T18:00:00Z"
+    },
+    {
+      "id": 537427,
+      "round": "r32",
+      "teamAId": 3,
+      "teamBId": 44,
+      "utcDate": "2026-07-03T22:00:00Z"
+    },
+    {
+      "id": 537430,
+      "round": "r32",
+      "teamAId": 12,
+      "teamBId": 45,
+      "utcDate": "2026-07-04T01:30:00Z"
     }
   ]
 }
