@@ -1,24 +1,34 @@
 {
-  "generatedAt": "2026-06-29T17:14:10.132Z",
-  "date": "2026-06-29",
-  "yesterday": "2026-06-28",
-  "headline": "Teddy erupts for +6 — but James holds the top at 26.0.",
-  "sub": "James leads on 26.0, 1 clear of Rob. The day belonged to Teddy (+6), fueled by Canada knocking out James's South Africa in the Round of 32. Out of the tournament: South Africa (James). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-06-30T12:32:23.256Z",
+  "date": "2026-06-30",
+  "yesterday": "2026-06-29",
+  "headline": "Max surges +6; James clings to 28.0.",
+  "sub": "James leads on 28.0, 3 clear of Rob. The day belonged to Max (+6), fueled by Paraguay knocking out Stev's Germany in the Round of 32. James (+2) and Joe (+2) also climbed. Out of the tournament: Japan (Stev), Germany (Stev), Netherlands (James). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
-    "pts": 26
+    "pts": 28
   },
   "bigMover": {
-    "name": "Teddy",
-    "pts": 20.5,
+    "name": "Max",
+    "pts": 22.5,
     "gained": 6
   },
   "eliminated": [
     {
-      "team": "South Africa",
+      "team": "Japan",
+      "owner": "Stev",
+      "round": "r32"
+    },
+    {
+      "team": "Germany",
+      "owner": "Stev",
+      "round": "r32"
+    },
+    {
+      "team": "Netherlands",
       "owner": "James",
       "round": "r32"
     }
   ],
-  "matchCountYesterday": 1
+  "matchCountYesterday": 3
 }
