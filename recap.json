@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-06-30T12:32:23.256Z",
-  "date": "2026-06-30",
-  "yesterday": "2026-06-29",
-  "headline": "Max surges +6; James clings to 28.0.",
-  "sub": "James leads on 28.0, 3 clear of Rob. The day belonged to Max (+6), fueled by Paraguay knocking out Stev's Germany in the Round of 32. James (+2) and Joe (+2) also climbed. Out of the tournament: Japan (Stev), Germany (Stev), Netherlands (James). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-01T13:58:01.634Z",
+  "date": "2026-07-01",
+  "yesterday": "2026-06-30",
+  "headline": "James tightens the grip — +6 stretches the lead to 34.0.",
+  "sub": "James leads on 34.0, 3 clear of Rob. The day belonged to James (+6), fueled by Norway knocking out Jim's Ivory Coast in the Round of 32. Rob (+6) also climbed. Out of the tournament: Ivory Coast (Jim), Sweden (Jim), Ecuador (Max). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
-    "pts": 28
+    "pts": 34
   },
   "bigMover": {
-    "name": "Max",
-    "pts": 22.5,
+    "name": "James",
+    "pts": 34,
     "gained": 6
   },
   "eliminated": [
     {
-      "team": "Japan",
-      "owner": "Stev",
+      "team": "Ivory Coast",
+      "owner": "Jim",
       "round": "r32"
     },
     {
-      "team": "Germany",
-      "owner": "Stev",
+      "team": "Sweden",
+      "owner": "Jim",
       "round": "r32"
     },
     {
-      "team": "Netherlands",
-      "owner": "James",
+      "team": "Ecuador",
+      "owner": "Max",
       "round": "r32"
     }
   ],
