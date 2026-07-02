@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-07-01T13:58:01.634Z",
-  "date": "2026-07-01",
-  "yesterday": "2026-06-30",
-  "headline": "James tightens the grip — +6 stretches the lead to 34.0.",
-  "sub": "James leads on 34.0, 3 clear of Rob. The day belonged to James (+6), fueled by Norway knocking out Jim's Ivory Coast in the Round of 32. Rob (+6) also climbed. Out of the tournament: Ivory Coast (Jim), Sweden (Jim), Ecuador (Max). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-02T13:10:20.280Z",
+  "date": "2026-07-02",
+  "yesterday": "2026-07-01",
+  "headline": "Joe surges +4; James clings to 34.0.",
+  "sub": "James leads on 34.0, 3 clear of Rob. The day belonged to Joe (+4), fueled by United States knocking out Teddy's Bosnia and Herzegovina in the Round of 32. Max (+2) and Jim (+2) also climbed. Out of the tournament: DR Congo (Jim), Senegal (Stev), Bosnia and Herzegovina (Teddy). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
     "pts": 34
   },
   "bigMover": {
-    "name": "James",
-    "pts": 34,
-    "gained": 6
+    "name": "Joe",
+    "pts": 22.5,
+    "gained": 4
   },
   "eliminated": [
     {
-      "team": "Ivory Coast",
+      "team": "DR Congo",
       "owner": "Jim",
       "round": "r32"
     },
     {
-      "team": "Sweden",
-      "owner": "Jim",
+      "team": "Senegal",
+      "owner": "Stev",
       "round": "r32"
     },
     {
-      "team": "Ecuador",
-      "owner": "Max",
+      "team": "Bosnia and Herzegovina",
+      "owner": "Teddy",
       "round": "r32"
     }
   ],
