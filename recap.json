@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-07-03T12:30:47.358Z",
-  "date": "2026-07-03",
-  "yesterday": "2026-07-02",
-  "headline": "James holds at 34.0 as Max comes charging (+4).",
-  "sub": "James leads on 34.0, 3 clear of Rob. The day belonged to Max (+4), fueled by Switzerland knocking out Rob's Algeria in the Round of 32. Teddy (+2) and Nick (+2) also climbed. Out of the tournament: Austria (Nick), Croatia (Joe), Algeria (Rob). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-04T11:13:09.959Z",
+  "date": "2026-07-04",
+  "yesterday": "2026-07-03",
+  "headline": "James tightens the grip — +6 stretches the lead to 40.0.",
+  "sub": "James leads on 40.0, 7 clear of Rob. The day belonged to James (+6), fueled by Egypt knocking out James's Australia in the Round of 32. Rob (+2) and Nick (+2) also climbed. Out of the tournament: Australia (James), Cape Verde (Rob), Ghana (Joe). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
-    "pts": 34
+    "pts": 40
   },
   "bigMover": {
-    "name": "Max",
-    "pts": 28.5,
-    "gained": 4
+    "name": "James",
+    "pts": 40,
+    "gained": 6
   },
   "eliminated": [
     {
-      "team": "Austria",
-      "owner": "Nick",
+      "team": "Australia",
+      "owner": "James",
       "round": "r32"
     },
     {
-      "team": "Croatia",
-      "owner": "Joe",
-      "round": "r32"
-    },
-    {
-      "team": "Algeria",
+      "team": "Cape Verde",
       "owner": "Rob",
+      "round": "r32"
+    },
+    {
+      "team": "Ghana",
+      "owner": "Joe",
       "round": "r32"
     }
   ],
