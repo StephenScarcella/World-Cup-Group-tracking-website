@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-05T20:37:28.036Z",
+  "fetchedAt": "2026-07-05T21:40:57.013Z",
   "matches": [
     {
       "id": 537327,
@@ -902,19 +902,7 @@
       "utcDate": "2026-07-04T21:00:00Z"
     }
   ],
-  "live": [
-    {
-      "id": 537377,
-      "round": "r16",
-      "teamAId": 6,
-      "teamBId": 28,
-      "scoreA": 0,
-      "scoreB": 0,
-      "status": "IN_PLAY",
-      "minute": null,
-      "utcDate": "2026-07-05T20:00:00Z"
-    }
-  ],
+  "live": [],
   "scheduled": [
     {
       "id": 537378,
