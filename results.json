@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-05T08:33:14.826Z",
+  "fetchedAt": "2026-07-05T10:50:36.245Z",
   "matches": [
     {
       "id": 537327,
@@ -820,15 +820,15 @@
       "scoreB": 0,
       "winner": "A",
       "utcDate": "2026-07-02T00:00:00Z"
-    },
+    }
+  ],
+  "live": [],
+  "scheduled": [
     {
       "id": 537420,
       "round": "r32",
       "teamAId": 2,
       "teamBId": 22,
-      "scoreA": 3,
-      "scoreB": 0,
-      "winner": "A",
       "utcDate": "2026-07-02T19:00:00Z"
     },
     {
@@ -836,9 +836,6 @@
       "round": "r32",
       "teamAId": 5,
       "teamBId": 11,
-      "scoreA": 2,
-      "scoreB": 1,
-      "winner": "A",
       "utcDate": "2026-07-02T23:00:00Z"
     },
     {
@@ -846,9 +843,6 @@
       "round": "r32",
       "teamAId": 18,
       "teamBId": 25,
-      "scoreA": 2,
-      "scoreB": 0,
-      "winner": "A",
       "utcDate": "2026-07-03T03:00:00Z"
     },
     {
@@ -856,9 +850,6 @@
       "round": "r32",
       "teamAId": 24,
       "teamBId": 26,
-      "scoreA": 3,
-      "scoreB": 5,
-      "winner": "B",
       "utcDate": "2026-07-03T18:00:00Z"
     },
     {
@@ -866,9 +857,6 @@
       "round": "r32",
       "teamAId": 3,
       "teamBId": 44,
-      "scoreA": 3,
-      "scoreB": 2,
-      "winner": "A",
       "utcDate": "2026-07-03T22:00:00Z"
     },
     {
@@ -876,9 +864,6 @@
       "round": "r32",
       "teamAId": 12,
       "teamBId": 45,
-      "scoreA": 1,
-      "scoreB": 0,
-      "winner": "A",
       "utcDate": "2026-07-04T01:30:00Z"
     },
     {
@@ -886,9 +871,6 @@
       "round": "r16",
       "teamAId": 27,
       "teamBId": 9,
-      "scoreA": 0,
-      "scoreB": 3,
-      "winner": "B",
       "utcDate": "2026-07-04T17:00:00Z"
     },
     {
@@ -896,14 +878,8 @@
       "round": "r16",
       "teamAId": 32,
       "teamBId": 1,
-      "scoreA": 0,
-      "scoreB": 1,
-      "winner": "B",
       "utcDate": "2026-07-04T21:00:00Z"
-    }
-  ],
-  "live": [],
-  "scheduled": [
+    },
     {
       "id": 537377,
       "round": "r16",
@@ -919,39 +895,11 @@
       "utcDate": "2026-07-06T00:00:00Z"
     },
     {
-      "id": 537379,
-      "round": "r16",
-      "teamAId": 5,
-      "teamBId": 2,
-      "utcDate": "2026-07-06T19:00:00Z"
-    },
-    {
       "id": 537380,
       "round": "r16",
       "teamAId": 15,
       "teamBId": 10,
       "utcDate": "2026-07-07T00:00:00Z"
-    },
-    {
-      "id": 537381,
-      "round": "r16",
-      "teamAId": 3,
-      "teamBId": 26,
-      "utcDate": "2026-07-07T16:00:00Z"
-    },
-    {
-      "id": 537382,
-      "round": "r16",
-      "teamAId": 18,
-      "teamBId": 12,
-      "utcDate": "2026-07-07T20:00:00Z"
-    },
-    {
-      "id": 537383,
-      "round": "qf",
-      "teamAId": 1,
-      "teamBId": 9,
-      "utcDate": "2026-07-09T20:00:00Z"
     }
   ]
 }
