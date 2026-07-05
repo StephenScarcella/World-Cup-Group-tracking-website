@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-05T01:27:44.985Z",
+  "fetchedAt": "2026-07-05T05:45:19.824Z",
   "matches": [
     {
       "id": 537327,
@@ -890,27 +890,10 @@
       "scoreB": 3,
       "winner": "B",
       "utcDate": "2026-07-04T17:00:00Z"
-    },
-    {
-      "id": 537375,
-      "round": "r16",
-      "teamAId": 32,
-      "teamBId": 1,
-      "scoreA": 0,
-      "scoreB": 1,
-      "winner": "B",
-      "utcDate": "2026-07-04T21:00:00Z"
     }
   ],
   "live": [],
   "scheduled": [
-    {
-      "id": 537377,
-      "round": "r16",
-      "teamAId": 6,
-      "teamBId": 28,
-      "utcDate": "2026-07-05T20:00:00Z"
-    },
     {
       "id": 537378,
       "round": "r16",
