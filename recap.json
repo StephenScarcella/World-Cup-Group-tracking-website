@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-07-06T10:55:09.996Z",
-  "date": "2026-07-06",
-  "yesterday": "2026-07-05",
-  "headline": "James extends the lead to 52.0 with a +9 haul.",
-  "sub": "James leads on 52.0, 16 clear of Rob. The day belonged to James (+9), fueled by Norway knocking out Joe's Brazil in the Round of 16. Jim (+3) also climbed. Out of the tournament: Brazil (Joe), Mexico (Rob). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-07T09:56:59.664Z",
+  "date": "2026-07-07",
+  "yesterday": "2026-07-06",
+  "headline": "Max erupts for +3 — but James holds the top at 52.0.",
+  "sub": "James leads on 52.0, 16 clear of Rob. The day belonged to Max (+3), fueled by Belgium knocking out Joe's United States in the Round of 16. Teddy (+3) also climbed. Out of the tournament: Portugal (Nick), United States (Joe). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
     "pts": 52
   },
   "bigMover": {
-    "name": "James",
-    "pts": 52,
-    "gained": 9
+    "name": "Max",
+    "pts": 31.5,
+    "gained": 3
   },
   "eliminated": [
     {
-      "team": "Brazil",
-      "owner": "Joe",
+      "team": "Portugal",
+      "owner": "Nick",
       "round": "r16"
     },
     {
-      "team": "Mexico",
-      "owner": "Rob",
+      "team": "United States",
+      "owner": "Joe",
       "round": "r16"
     }
   ],
