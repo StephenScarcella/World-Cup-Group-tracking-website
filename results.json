@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-08T04:37:04.104Z",
+  "fetchedAt": "2026-07-08T07:14:27.281Z",
   "matches": [
     {
       "id": 537327,
@@ -958,7 +958,7 @@
       "teamBId": 12,
       "scoreA": 4,
       "scoreB": 3,
-      "winner": null,
+      "winner": "A",
       "utcDate": "2026-07-07T20:00:00Z"
     }
   ],
@@ -984,6 +984,13 @@
       "teamAId": 28,
       "teamBId": 4,
       "utcDate": "2026-07-11T21:00:00Z"
+    },
+    {
+      "id": 537386,
+      "round": "qf",
+      "teamAId": 3,
+      "teamBId": 18,
+      "utcDate": "2026-07-12T01:00:00Z"
     }
   ]
 }
