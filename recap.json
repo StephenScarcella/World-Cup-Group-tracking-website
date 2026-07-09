@@ -1,29 +1,18 @@
 {
-  "generatedAt": "2026-07-08T08:40:51.998Z",
-  "date": "2026-07-08",
-  "yesterday": "2026-07-07",
-  "headline": "Max surges +6; James clings to 52.0.",
-  "sub": "James leads on 52.0, 14.5 clear of Max. The day belonged to Max (+6), fueled by Switzerland knocking out Rob's Colombia in the Round of 16. Nick (+3) also climbed. Out of the tournament: Egypt (James), Colombia (Rob). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-09T09:53:56.513Z",
+  "date": "2026-07-09",
+  "yesterday": "2026-07-08",
+  "headline": "James sits tight on 52.0 with no matches in the last 24 hours.",
+  "sub": "14.5 still separates James from Max. Standings unchanged until the next kickoff.",
   "leader": {
     "name": "James",
     "pts": 52
   },
   "bigMover": {
-    "name": "Max",
-    "pts": 37.5,
-    "gained": 6
+    "name": "James",
+    "pts": 52,
+    "gained": 0
   },
-  "eliminated": [
-    {
-      "team": "Egypt",
-      "owner": "James",
-      "round": "r16"
-    },
-    {
-      "team": "Colombia",
-      "owner": "Rob",
-      "round": "r16"
-    }
-  ],
-  "matchCountYesterday": 2
+  "eliminated": [],
+  "matchCountYesterday": 0
 }
