@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-09T21:51:47.169Z",
+  "fetchedAt": "2026-07-09T23:17:49.203Z",
   "matches": [
     {
       "id": 537327,
@@ -960,9 +960,7 @@
       "scoreB": 3,
       "winner": "A",
       "utcDate": "2026-07-07T20:00:00Z"
-    }
-  ],
-  "live": [
+    },
     {
       "id": 537383,
       "round": "qf",
@@ -970,11 +968,11 @@
       "teamBId": 9,
       "scoreA": 2,
       "scoreB": 0,
-      "status": "IN_PLAY",
-      "minute": null,
+      "winner": "A",
       "utcDate": "2026-07-09T20:00:00Z"
     }
   ],
+  "live": [],
   "scheduled": [
     {
       "id": 537384,
