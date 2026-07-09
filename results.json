@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-09T20:11:31.818Z",
+  "fetchedAt": "2026-07-09T21:51:47.169Z",
   "matches": [
     {
       "id": 537327,
@@ -968,7 +968,7 @@
       "round": "qf",
       "teamAId": 1,
       "teamBId": 9,
-      "scoreA": 0,
+      "scoreA": 2,
       "scoreB": 0,
       "status": "IN_PLAY",
       "minute": null,
