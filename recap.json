@@ -1,18 +1,24 @@
 {
-  "generatedAt": "2026-07-09T09:53:56.513Z",
-  "date": "2026-07-09",
-  "yesterday": "2026-07-08",
-  "headline": "James sits tight on 52.0 with no matches in the last 24 hours.",
-  "sub": "14.5 still separates James from Max. Standings unchanged until the next kickoff.",
+  "generatedAt": "2026-07-10T09:49:39.080Z",
+  "date": "2026-07-10",
+  "yesterday": "2026-07-09",
+  "headline": "Rob erupts for +4 — but James holds the top at 52.0.",
+  "sub": "James leads on 52.0, 12 clear of Rob. The day belonged to Rob (+4), fueled by France knocking out James's Morocco in the quarterfinal. Out of the tournament: Morocco (James). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
     "pts": 52
   },
   "bigMover": {
-    "name": "James",
-    "pts": 52,
-    "gained": 0
+    "name": "Rob",
+    "pts": 40,
+    "gained": 4
   },
-  "eliminated": [],
-  "matchCountYesterday": 0
+  "eliminated": [
+    {
+      "team": "Morocco",
+      "owner": "James",
+      "round": "qf"
+    }
+  ],
+  "matchCountYesterday": 1
 }
