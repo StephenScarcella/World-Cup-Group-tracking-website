@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-10T09:49:39.080Z",
-  "date": "2026-07-10",
-  "yesterday": "2026-07-09",
-  "headline": "Rob erupts for +4 — but James holds the top at 52.0.",
-  "sub": "James leads on 52.0, 12 clear of Rob. The day belonged to Rob (+4), fueled by France knocking out James's Morocco in the quarterfinal. Out of the tournament: Morocco (James). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-11T08:07:15.882Z",
+  "date": "2026-07-11",
+  "yesterday": "2026-07-10",
+  "headline": "Teddy surges +4; James clings to 52.0.",
+  "sub": "James leads on 52.0, 12 clear of Rob. The day belonged to Teddy (+4), fueled by Spain knocking out Max's Belgium in the quarterfinal. Out of the tournament: Belgium (Max). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
     "pts": 52
   },
   "bigMover": {
-    "name": "Rob",
-    "pts": 40,
+    "name": "Teddy",
+    "pts": 29.5,
     "gained": 4
   },
   "eliminated": [
     {
-      "team": "Morocco",
-      "owner": "James",
+      "team": "Belgium",
+      "owner": "Max",
       "round": "qf"
     }
   ],
