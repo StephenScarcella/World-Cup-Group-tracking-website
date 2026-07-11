@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-11T06:04:01.047Z",
+  "fetchedAt": "2026-07-11T08:13:08.940Z",
   "matches": [
     {
       "id": 537327,
@@ -997,6 +997,13 @@
       "teamAId": 3,
       "teamBId": 18,
       "utcDate": "2026-07-12T01:00:00Z"
+    },
+    {
+      "id": 537387,
+      "round": "sf",
+      "teamAId": 1,
+      "teamBId": 2,
+      "utcDate": "2026-07-14T19:00:00Z"
     }
   ]
 }
