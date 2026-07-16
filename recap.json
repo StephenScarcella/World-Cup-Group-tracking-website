@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-15T08:28:12.740Z",
-  "date": "2026-07-15",
-  "yesterday": "2026-07-14",
-  "headline": "James holds at 52.0 as Teddy comes charging (+6).",
-  "sub": "James leads on 52.0, 12 clear of Rob. The day belonged to Teddy (+6), fueled by Spain knocking out Rob's France in the semifinal. Out of the tournament: France (Rob). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-16T08:26:05.710Z",
+  "date": "2026-07-16",
+  "yesterday": "2026-07-15",
+  "headline": "Nick erupts for +6 — but James holds the top at 52.0.",
+  "sub": "James leads on 52.0, 12 clear of Rob. The day belonged to Nick (+6), fueled by Argentina knocking out Jim's England in the semifinal. Out of the tournament: England (Jim). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
     "pts": 52
   },
   "bigMover": {
-    "name": "Teddy",
-    "pts": 35.5,
+    "name": "Nick",
+    "pts": 32,
     "gained": 6
   },
   "eliminated": [
     {
-      "team": "France",
-      "owner": "Rob",
+      "team": "England",
+      "owner": "Jim",
       "round": "sf"
     }
   ],
