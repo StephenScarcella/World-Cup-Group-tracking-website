@@ -1,24 +1,18 @@
 {
-  "generatedAt": "2026-07-16T08:26:05.710Z",
-  "date": "2026-07-16",
-  "yesterday": "2026-07-15",
-  "headline": "Nick erupts for +6 — but James holds the top at 52.0.",
-  "sub": "James leads on 52.0, 12 clear of Rob. The day belonged to Nick (+6), fueled by Argentina knocking out Jim's England in the semifinal. Out of the tournament: England (Jim). Stev (14.0) has ground to make up.",
+  "generatedAt": "2026-07-17T08:22:24.477Z",
+  "date": "2026-07-17",
+  "yesterday": "2026-07-16",
+  "headline": "No movement: James holds the lead at 52.0.",
+  "sub": "12 still separates James from Rob. Standings unchanged until the next kickoff.",
   "leader": {
     "name": "James",
     "pts": 52
   },
   "bigMover": {
-    "name": "Nick",
-    "pts": 32,
-    "gained": 6
+    "name": "James",
+    "pts": 52,
+    "gained": 0
   },
-  "eliminated": [
-    {
-      "team": "England",
-      "owner": "Jim",
-      "round": "sf"
-    }
-  ],
-  "matchCountYesterday": 1
+  "eliminated": [],
+  "matchCountYesterday": 0
 }
