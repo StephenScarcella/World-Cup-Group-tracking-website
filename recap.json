@@ -1,18 +1,24 @@
 {
-  "generatedAt": "2026-07-19T08:29:51.514Z",
-  "date": "2026-07-19",
-  "yesterday": "2026-07-18",
-  "headline": "Quiet day at the top — James stays put on 52.0.",
-  "sub": "12 still separates James from Rob. Standings unchanged until the next kickoff.",
+  "generatedAt": "2026-07-20T09:30:19.065Z",
+  "date": "2026-07-20",
+  "yesterday": "2026-07-19",
+  "headline": "Teddy surges +8; James clings to 52.0.",
+  "sub": "James leads on 52.0, 8.5 clear of Teddy. The day belonged to Teddy (+8), fueled by Spain knocking out Nick's Argentina in the final. Out of the tournament: Argentina (Nick). Stev (14.0) has ground to make up.",
   "leader": {
     "name": "James",
     "pts": 52
   },
   "bigMover": {
-    "name": "James",
-    "pts": 52,
-    "gained": 0
+    "name": "Teddy",
+    "pts": 43.5,
+    "gained": 8
   },
-  "eliminated": [],
-  "matchCountYesterday": 0
+  "eliminated": [
+    {
+      "team": "Argentina",
+      "owner": "Nick",
+      "round": "final"
+    }
+  ],
+  "matchCountYesterday": 1
 }
