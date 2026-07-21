@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Group — July 21, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#0b1020; --panel:#161d3d; --line:#2a335f; --ink:#f6f3e8; --ink-dim:#b9bfd6; --gold:#f5c84c; --red:#e63946; --green:#2dd4bf; }
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif}
+.container{max-width:1100px;margin:0 auto;padding:30px 24px}
+.back{display:inline-block;color:var(--gold);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.eyebrow{font-family:'Bebas Neue',sans-serif;letter-spacing:4px;color:var(--gold);font-size:14px}
+h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,4.5vw,46px);margin:12px 0;line-height:1.05}
+.sub{color:var(--ink-dim);max-width:60ch;line-height:1.55}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+.panel h2{font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:18px;color:var(--gold);margin:0 0 14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 6px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
+th{color:var(--ink-dim);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:600}
+.pts{font-family:'Bebas Neue',sans-serif;color:var(--gold);font-size:18px}
+.match{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px}
+.match .score{font-family:'Bebas Neue',sans-serif;color:var(--gold);font-size:20px}
+.match .meta{font-size:10px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:1px}
+.tier{display:inline-block;width:18px;height:18px;border-radius:3px;text-align:center;font-size:10px;line-height:18px;font-weight:700;color:#0b1020;margin-right:6px}
+.t1{background:#f5c84c}.t2{background:#c0c0c0}.t3{background:#cd7f32;color:#fff}.t4{background:#6b7280;color:#fff}
+footer{margin-top:40px;color:var(--ink-dim);font-size:11px;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="./index.html" class="back">← Archive</a>
+  <div class="eyebrow">FRONT PAGE — JULY 21, 2026</div>
+  <h1>James sits tight on 52.0 with no matches in the last 24 hours.</h1>
+  <p class="sub">8.5 still separates James from Teddy. Standings unchanged until the next kickoff.</p>
+
+  <div class="grid">
+    <div class="panel">
+      <h2>STANDINGS AT END OF DAY</h2>
+      <table>
+        <thead><tr><th>#</th><th>Player</th><th>Pts</th><th>Alive</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>James</td><td class="pts">52.0</td><td>0/6</td></tr><tr><td>2</td><td>Teddy</td><td class="pts">43.5</td><td>4/6</td></tr><tr><td>3</td><td>Rob</td><td class="pts">40.0</td><td>1/6</td></tr><tr><td>4</td><td>Max</td><td class="pts">37.5</td><td>2/6</td></tr><tr><td>5</td><td>Nick</td><td class="pts">32.0</td><td>3/6</td></tr><tr><td>6</td><td>Jim</td><td class="pts">28.5</td><td>2/6</td></tr><tr><td>7</td><td>Joe</td><td class="pts">22.5</td><td>2/6</td></tr><tr><td>8</td><td>Stev</td><td class="pts">14.0</td><td>3/6</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>MATCHES — LAST 24 HOURS</h2>
+      <p style="color:var(--ink-dim);font-size:13px">No matches played.</p>
+    </div>
+  </div>
+
+  <footer>The Group — frozen snapshot of 2026-07-21. <a href="../index.html" style="color:var(--gold)">Back to live page</a></footer>
+</div>
+</body>
+</html>
