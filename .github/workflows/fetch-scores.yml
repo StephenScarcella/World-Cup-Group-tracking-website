@@ -1,13 +1,7 @@
 name: Fetch WC Scores
 
 on:
-  schedule:
-    # Every 10 minutes. The site reads results.json straight from GitHub raw
-    # and Netlify skips deploys for results.json-only commits, so frequent
-    # updates cost nothing on Netlify. Runs that find no score change make no
-    # commit. (GitHub runs scheduled workflows on a best-effort basis and may
-    # delay them under load.)
-    - cron: '*/10 * * * *'
+  # Schedule removed 2026-10-07: tournament is over. Run manually from the Actions tab if needed.
   workflow_dispatch: {}
 
 jobs:

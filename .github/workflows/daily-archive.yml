@@ -1,9 +1,7 @@
 name: Daily Archive
 
 on:
-  schedule:
-    # 06:05 UTC = ~02:05 ET / 11:05 PT — well after the last match of the day.
-    - cron: '5 6 * * *'
+  # Schedule removed 2026-10-07: tournament is over. Run manually from the Actions tab if needed.
   workflow_dispatch: {}
 
 jobs:
